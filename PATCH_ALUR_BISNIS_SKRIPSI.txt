@@ -1,0 +1,32 @@
+PATCH ALUR BISNIS SIM SKRIPSI
+
+Alur yang disesuaikan:
+1. Mahasiswa mengajukan judul.
+2. Dosen melakukan voting setuju/tidak setuju.
+3. Jika suara setuju memenuhi aturan minimal, status judul menjadi disetujui/lolos voting.
+4. Jurusan menetapkan pembimbing 1 dan pembimbing 2.
+5. Mahasiswa hanya bisa bimbingan dengan pembimbing 1 atau 2 yang sudah ditetapkan.
+6. Mahasiswa daftar seminar proposal setelah pembimbing ditetapkan.
+7. Mahasiswa daftar sidang skripsi setelah seminar proposal selesai.
+8. Jurusan menentukan jadwal, ruangan, ketua, sekretaris, dan penguji.
+
+File penting yang diubah/ditambah:
+- database/migrations/2026_06_17_000002_adjust_business_flow_skripsi.php
+- app/Models/TitleSubmission.php
+- app/Http/Controllers/TitleSubmissionController.php
+- app/Http/Controllers/GuidanceSessionController.php
+- app/Http/Controllers/ExamRegistrationController.php
+- resources/views/titles/review.blade.php
+- resources/views/titles/show.blade.php
+- resources/views/titles/approval-letter.blade.php
+- resources/views/exams/index.blade.php
+- resources/views/exams/show.blade.php
+
+Setelah copy/replace file, jalankan:
+php artisan migrate
+php artisan optimize:clear
+
+Catatan:
+- Status lolos voting tetap memakai status existing: disetujui, agar tidak perlu merombak enum status lama.
+- Penetapan pembimbing dibaca dari supervisor_1_id dan supervisor_2_id.
+- Field supervisor_id lama tetap diisi dengan pembimbing 1 untuk kompatibilitas fitur lama.

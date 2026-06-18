@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?php echo e(config('app.name', 'SIM Skripsi')); ?></title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+<div class="flex min-h-screen">
+
+    
+    <aside id="sidebar"
+           class="fixed inset-y-0 left-0 z-40 w-64 -translate-x-full bg-[#81C1C3] text-white shadow-lg transition-transform duration-300 md:translate-x-0">
+
+        <div class="flex items-center justify-between border-b border-[#74B3B5] px-4 py-4">
+            <a href="<?php echo e(route('dashboard')); ?>" class="text-lg font-bold">
+                SIM Skripsi
+            </a>
+
+            <button onclick="toggleSidebar()"
+                    class="text-xl md:hidden">
+                ✕
+            </button>
+        </div>
+
+        <?php if(auth()->guard()->check()): ?>
+        <nav class="space-y-1 p-4 text-sm">
+
+            <a href="<?php echo e(route('archives.index')); ?>"
+               class="flex items-center gap-3 rounded px-3 py-2 transition hover:bg-[#74B3B5]">
+                🗂️ <span>Arsip</span>
+            </a>
+
+            <a href="<?php echo e(route('titles.index')); ?>"
+               class="flex items-center gap-3 rounded px-3 py-2 transition hover:bg-[#74B3B5]">
+                📄 <span>Judul</span>
+            </a>
+
+            <?php if(auth()->user()->isMahasiswa() || auth()->user()->isDosen()): ?>
+            <a href="<?php echo e(route('guidances.index')); ?>"
+               class="flex items-center gap-3 rounded px-3 py-2 transition hover:bg-[#74B3B5]">
+                📚 <span>Bimbingan</span>
+            </a>
+            <?php endif; ?>
+
+            <?php if(!auth()->user()->isDosen()): ?>
+            <a href="<?php echo e(route('exams.index')); ?>"
+               class="flex items-center gap-3 rounded px-3 py-2 transition hover:bg-[#74B3B5]">
+                🗓️ <span>Sidang</span>
+            </a>
+            <?php endif; ?>
+
+            <a href="<?php echo e(route('progress.index')); ?>"
+               class="flex items-center gap-3 rounded px-3 py-2 transition hover:bg-[#74B3B5]">
+                📈 <span>Monitoring</span>
+            </a>
+
+            <a href="<?php echo e(route('notifications.index')); ?>"
+               class="flex items-center gap-3 rounded px-3 py-2 transition hover:bg-[#74B3B5]">
+                🔔 <span>Notifikasi</span>
+            </a>
+
+            <?php if(auth()->user()->isJurusan()): ?>
+            <a href="<?php echo e(route('users.index')); ?>"
+               class="flex items-center gap-3 rounded px-3 py-2 transition hover:bg-[#74B3B5]">
+                👥 <span>Pengguna</span>
+            </a>
+            <?php endif; ?>
+
+        </nav>
+        <?php endif; ?>
+    </aside>
+
+    
+    <div id="overlay"
+         onclick="toggleSidebar()"
+         class="fixed inset-0 z-30 hidden bg-black/40 md:hidden"></div>
+
+    
+    <div class="flex-1 md:ml-64">
+
+        
+        <header class="sticky top-0 z-20 flex items-center justify-between bg-[#81C1C3] px-4 py-3 text-white shadow">
+
+            <div class="flex items-center gap-3">
+
+                <button onclick="toggleSidebar()"
+                        class="rounded bg-[#5FA9AD] px-3 py-2 text-white md:hidden">
+                    ☰
+                </button>
+
+                <h1 class="font-bold">
+                    SIM Skripsi & Bimbingan
+                </h1>
+
+            </div>
+
+            <?php if(auth()->guard()->check()): ?>
+            <div class="flex items-center gap-4">
+
+                <div class="text-right">
+                    <div class="font-semibold text-white">
+                        <?php echo e(auth()->user()->name); ?>
+
+                    </div>
+                    <div class="text-xs text-white/80">
+                        <?php echo e(auth()->user()->role); ?>
+
+                    </div>
+                </div>
+
+                <form method="POST" action="<?php echo e(route('logout')); ?>">
+                    <?php echo csrf_field(); ?>
+                    <button type="submit"
+                            class="rounded bg-white/20 px-3 py-2 text-sm text-white transition hover:bg-white/30">
+                        🚪 Logout
+                    </button>
+                </form>
+
+            </div>
+            <?php endif; ?>
+
+        </header>
+
+        <main class="mx-auto max-w-7xl p-4">
+
+            <?php if(session('success')): ?>
+                <div class="mb-4 rounded border border-green-200 bg-green-50 p-3 text-green-700">
+                    <?php echo e(session('success')); ?>
+
+                </div>
+            <?php endif; ?>
+
+            <?php if($errors->any()): ?>
+                <div class="mb-4 rounded border border-red-200 bg-red-50 p-3 text-red-700">
+                    <ul class="list-disc pl-5">
+                        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $e): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <li><?php echo e($e); ?></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+
+            <?php echo $__env->yieldContent('content'); ?>
+
+        </main>
+
+    </div>
+
+</div>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        sidebar.classList.toggle('-translate-x-full');
+        overlay.classList.toggle('hidden');
+    }
+</script>
+
+</body>
+</html>
+
+<?php /**PATH D:\SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW\resources\views/layouts/app.blade.php ENDPATH**/ ?>
