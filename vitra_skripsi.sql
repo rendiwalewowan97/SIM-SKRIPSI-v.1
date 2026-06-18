@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2026 at 12:36 PM
+-- Generation Time: Jun 19, 2026 at 01:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -247,20 +247,20 @@ CREATE TABLE `notifications` (
 
 INSERT INTO `notifications` (`id`, `user_id`, `title`, `message`, `url`, `read_at`, `created_at`, `updated_at`) VALUES
 (23, 1, 'Pengajuan judul baru', 'Vitra Mahasiswa mengajukan judul skripsi.', 'http://localhost:8000/titles/3', NULL, '2026-06-18 08:24:36', '2026-06-18 08:24:36'),
-(24, 3, 'Status pengajuan judul', 'Status judul Anda: DISETUJUI. Pembimbing 1 dan 2 telah ditetapkan. Catatan: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'http://localhost:8000/titles/3', NULL, '2026-06-18 08:31:52', '2026-06-18 08:31:52'),
+(24, 3, 'Status pengajuan judul', 'Status judul Anda: DISETUJUI. Pembimbing 1 dan 2 telah ditetapkan. Catatan: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'http://localhost:8000/titles/3', '2026-06-18 23:35:34', '2026-06-18 08:31:52', '2026-06-18 23:35:34'),
 (37, 10, 'Bimbingan baru', 'Vitra Mahasiswa mengirim catatan bimbingan.', 'http://localhost:8000/guidances/8/edit', NULL, '2026-06-18 09:35:59', '2026-06-18 09:35:59'),
 (38, 10, 'Bimbingan baru', 'Vitra Mahasiswa mengirim catatan bimbingan.', 'http://localhost:8000/guidances/9/edit', NULL, '2026-06-18 09:54:10', '2026-06-18 09:54:10'),
 (39, 10, 'Bimbingan baru', 'Vitra Mahasiswa mengirim catatan bimbingan.', 'http://localhost:8000/guidances/10/edit', NULL, '2026-06-18 09:55:56', '2026-06-18 09:55:56'),
 (40, 10, 'Chat baru', 'Vitra Mahasiswa mengirim pesan baru.', 'http://localhost:8000/chats/3', NULL, '2026-06-18 09:56:30', '2026-06-18 09:56:30'),
-(41, 3, 'Chat baru', 'Izak Habel Wayangkau, S.T., M.T mengirim pesan baru.', 'http://localhost:8000/chats/10', NULL, '2026-06-18 09:56:43', '2026-06-18 09:56:43'),
-(42, 3, 'Bimbingan diperbarui', 'Dosen memberi catatan: REVISI', 'http://localhost:8000/guidances/10', NULL, '2026-06-18 09:57:06', '2026-06-18 09:57:06'),
+(41, 3, 'Chat baru', 'Izak Habel Wayangkau, S.T., M.T mengirim pesan baru.', 'http://localhost:8000/chats/10', '2026-06-18 23:35:34', '2026-06-18 09:56:43', '2026-06-18 23:35:34'),
+(42, 3, 'Bimbingan diperbarui', 'Dosen memberi catatan: REVISI', 'http://localhost:8000/guidances/10', '2026-06-18 23:35:34', '2026-06-18 09:57:06', '2026-06-18 23:35:34'),
 (43, 10, 'Bimbingan baru', 'Vitra Mahasiswa mengirim catatan bimbingan.', 'http://localhost:8000/guidances/11/edit', NULL, '2026-06-18 10:18:31', '2026-06-18 10:18:31'),
-(44, 3, 'Bimbingan diperbarui', 'Dosen memberi catatan: REVISI', 'http://localhost:8000/guidances/11', NULL, '2026-06-18 10:19:18', '2026-06-18 10:19:18'),
+(44, 3, 'Bimbingan diperbarui', 'Dosen memberi catatan: REVISI', 'http://localhost:8000/guidances/11', '2026-06-18 23:35:34', '2026-06-18 10:19:18', '2026-06-18 23:35:34'),
 (45, 18, 'Bimbingan baru', 'Vitra Mahasiswa mengirim catatan bimbingan.', 'http://localhost:8000/guidances/12/edit', NULL, '2026-06-18 10:24:48', '2026-06-18 10:24:48'),
 (46, 1, 'Pendaftaran sidang baru', 'Vitra Mahasiswa mendaftar seminar proposal.', 'http://localhost:8000/exams/8/edit', NULL, '2026-06-18 10:25:46', '2026-06-18 10:25:46'),
-(47, 3, 'Status pendaftaran sidang', 'Status pendaftaran: DIJADWALKAN', 'http://localhost:8000/exams/8', NULL, '2026-06-18 10:27:16', '2026-06-18 10:27:16'),
-(48, 3, 'Bimbingan diperbarui', 'Dosen memberi catatan: REVISI', 'http://localhost:8000/guidances/12', NULL, '2026-06-18 10:29:15', '2026-06-18 10:29:15'),
-(49, 3, 'Chat baru', 'Teddy Istanto, S.Kom., M.Kom mengirim pesan baru.', 'http://localhost:8000/chats/18', NULL, '2026-06-18 10:29:27', '2026-06-18 10:29:27'),
+(47, 3, 'Status pendaftaran sidang', 'Status pendaftaran: DIJADWALKAN', 'http://localhost:8000/exams/8', '2026-06-18 23:35:34', '2026-06-18 10:27:16', '2026-06-18 23:35:34'),
+(48, 3, 'Bimbingan diperbarui', 'Dosen memberi catatan: REVISI', 'http://localhost:8000/guidances/12', '2026-06-18 23:35:34', '2026-06-18 10:29:15', '2026-06-18 23:35:34'),
+(49, 3, 'Chat baru', 'Teddy Istanto, S.Kom., M.Kom mengirim pesan baru.', 'http://localhost:8000/chats/18', '2026-06-18 23:35:34', '2026-06-18 10:29:27', '2026-06-18 23:35:34'),
 (50, 18, 'Chat baru', 'Vitra Mahasiswa mengirim pesan baru.', 'http://localhost:8000/chats/3', NULL, '2026-06-18 10:29:47', '2026-06-18 10:29:47');
 
 -- --------------------------------------------------------
@@ -295,6 +295,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('hzvcDEMcgYxe9IORs08y0wtvVNTUi9vfgPw4owg0', 3, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVHViYUR4WWdOQzJ5Rks5R3pYek0yQ1hjVlVjY2FraW5nRTJrMWptSiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9ub3RpZmljYXRpb25zIjtzOjU6InJvdXRlIjtzOjE5OiJub3RpZmljYXRpb25zLmluZGV4Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mzt9', 1781825765),
 ('JadvdgecBKdrSYKYCiP3sEUaXRndpGJIuBMyPSbz', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiaHlDWFp6ekI3bWI5UVFYQ215ZUhTRVFsMzlqQmpmendUV08wOEhyNiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC91c2VycyI7czo1OiJyb3V0ZSI7czoxMToidXNlcnMuaW5kZXgiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1781778869),
 ('vDsefViBYXFAskw0JeHgY8TJ1LZlUjEUn0vQBdGx', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36 Edg/149.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoib0NuN2lJWnU4aXZCMzQzOFBwWGFleXlxVWlCT1ROUloydU9FcjRtayI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7czo1OiJyb3V0ZSI7czo1OiJsb2dpbiI7fX0=', 1781778934);
 
