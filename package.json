@@ -13,6 +13,8 @@
     "vite": "^6.0.0"
   },
   "dependencies": {
-    "alpinejs": "^3.14.0"
+    "alpinejs": "^3.14.0",
+    "laravel-echo": "^2.1.6",
+    "pusher-js": "^8.4.0"
   }
 }

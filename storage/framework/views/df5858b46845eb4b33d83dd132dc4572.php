@@ -6,6 +6,7 @@
     <title><?php echo e(config('app.name', 'SIM Skripsi')); ?></title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/js/app.js']); ?>
 </head>
 
 <body class="bg-slate-50 text-slate-800">
@@ -60,8 +61,14 @@
             </a>
 
             <a href="<?php echo e(route('notifications.index')); ?>"
-               class="flex items-center gap-3 rounded px-3 py-2 transition hover:bg-[#74B3B5]">
+               class="relative flex items-center gap-3 rounded px-3 py-2 transition hover:bg-[#74B3B5]">
                 🔔 <span>Notifikasi</span>
+                <?php ($unreadNotifications = auth()->user()->internalNotifications()->whereNull('read_at')->count()); ?>
+                <span id="notificationBadge"
+                      class="<?php echo e($unreadNotifications ? '' : 'hidden'); ?> ml-auto rounded-full bg-red-600 px-2 py-0.5 text-xs font-bold text-white">
+                    <?php echo e($unreadNotifications); ?>
+
+                </span>
             </a>
 
             <?php if(auth()->user()->isJurusan()): ?>
@@ -101,6 +108,18 @@
 
             <?php if(auth()->guard()->check()): ?>
             <div class="flex items-center gap-4">
+
+                <?php ($topUnreadNotifications = $unreadNotifications ?? auth()->user()->internalNotifications()->whereNull('read_at')->count()); ?>
+                <a href="<?php echo e(route('notifications.index')); ?>"
+                   class="relative rounded bg-white/20 px-3 py-2 text-white transition hover:bg-white/30"
+                   title="Notifikasi">
+                    🔔
+                    <span id="topNotificationBadge"
+                          class="<?php echo e($topUnreadNotifications ? '' : 'hidden'); ?> absolute -right-2 -top-2 rounded-full bg-red-600 px-1.5 py-0.5 text-xs font-bold text-white">
+                        <?php echo e($topUnreadNotifications); ?>
+
+                    </span>
+                </a>
 
                 <div class="text-right">
                     <div class="font-semibold text-white">
@@ -152,6 +171,59 @@
     </div>
 
 </div>
+
+<?php if(auth()->guard()->check()): ?>
+<div id="realtimeNotificationToast" class="fixed right-4 top-20 z-50 hidden w-80 rounded-lg border border-slate-200 bg-white p-4 text-slate-800 shadow-xl">
+    <div class="flex items-start gap-3">
+        <div class="text-2xl">🔔</div>
+        <div class="min-w-0 flex-1">
+            <div id="toastNotificationTitle" class="font-bold"></div>
+            <div id="toastNotificationMessage" class="mt-1 text-sm text-slate-600"></div>
+            <a id="toastNotificationLink" href="<?php echo e(route('notifications.index')); ?>" class="mt-2 inline-block text-sm font-semibold text-[#5FA9AD] hover:underline">Buka notifikasi</a>
+        </div>
+        <button type="button" onclick="document.getElementById('realtimeNotificationToast').classList.add('hidden')" class="text-slate-400 hover:text-slate-700">✕</button>
+    </div>
+</div>
+
+<script>
+    window.authUserId = <?php echo e(auth()->id()); ?>;
+
+    function incrementNotificationBadge() {
+        ['notificationBadge', 'topNotificationBadge'].forEach((id) => {
+            const badge = document.getElementById(id);
+            if (!badge) return;
+            const current = parseInt((badge.textContent || '0').trim(), 10) || 0;
+            badge.textContent = current + 1;
+            badge.classList.remove('hidden');
+        });
+    }
+
+    function showRealtimeToast(notification) {
+        const toast = document.getElementById('realtimeNotificationToast');
+        const title = document.getElementById('toastNotificationTitle');
+        const message = document.getElementById('toastNotificationMessage');
+        const link = document.getElementById('toastNotificationLink');
+        if (!toast || !title || !message || !link) return;
+
+        title.textContent = notification.title || 'Notifikasi baru';
+        message.textContent = notification.message || '';
+        link.href = notification.url || '<?php echo e(route('notifications.index')); ?>';
+        toast.classList.remove('hidden');
+
+        setTimeout(() => toast.classList.add('hidden'), 8000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (!window.Echo || !window.authUserId) return;
+
+        window.Echo.private(`notifications.${window.authUserId}`)
+            .listen('.notification.created', (event) => {
+                incrementNotificationBadge();
+                showRealtimeToast(event.notification || event);
+            });
+    });
+</script>
+<?php endif; ?>
 
 <script>
     function toggleSidebar() {

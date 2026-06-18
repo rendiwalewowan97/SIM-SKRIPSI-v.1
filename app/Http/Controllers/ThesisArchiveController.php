@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\{ThesisArchive, User};
+use App\Models\{ThesisArchive, User, Notification};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
@@ -59,7 +59,8 @@ class ThesisArchiveController extends Controller
         unset($data['file'], $data['abstract']);
         $data['is_public'] = $request->boolean('is_public', true);
 
-        ThesisArchive::create($data);
+        $archive = ThesisArchive::create($data);
+        $this->notifyArchiveComplete($archive);
 
         return redirect()->route('archives.index')->with('success','Arsip skripsi berhasil disimpan.');
     }
@@ -137,6 +138,8 @@ class ThesisArchiveController extends Controller
         $data['is_public'] = $request->boolean('is_public', false);
 
         $archive->update($data);
+        $archive->refresh();
+        $this->notifyArchiveComplete($archive);
 
         return redirect()->route('archives.show', $archive)->with('success','Arsip skripsi diperbarui.');
     }
@@ -158,6 +161,33 @@ class ThesisArchiveController extends Controller
             $archive->is_public || auth()->user()->isJurusan() || auth()->user()->isKetuaJurusan() || $archive->student_id === auth()->id(),
             403
         );
+    }
+
+    private function notifyArchiveComplete(ThesisArchive $archive): void
+    {
+        if (!$archive->file_path || !$archive->abstract_path) {
+            return;
+        }
+
+        $studentName = $archive->student->name ?? 'Mahasiswa';
+
+        if ($archive->student_id) {
+            Notification::create([
+                'user_id' => $archive->student_id,
+                'title' => 'Arsip skripsi lengkap',
+                'message' => 'File skripsi dan abstrak Anda sudah lengkap di arsip.',
+                'url' => route('archives.show', $archive),
+            ]);
+        }
+
+        foreach (User::where('role', 'jurusan')->get() as $jurusan) {
+            Notification::create([
+                'user_id' => $jurusan->id,
+                'title' => 'Arsip skripsi lengkap',
+                'message' => $studentName.' sudah mengupload file skripsi dan abstrak lengkap.',
+                'url' => route('archives.show', $archive),
+            ]);
+        }
     }
 
     private function uploadToPublic($file, string $prefix): string

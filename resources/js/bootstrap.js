@@ -1,1 +1,18 @@
-import Alpine from 'alpinejs'; window.Alpine = Alpine; Alpine.start();
+import Alpine from 'alpinejs';
+import Echo from 'laravel-echo';
+import Pusher from 'pusher-js';
+
+window.Alpine = Alpine;
+Alpine.start();
+
+window.Pusher = Pusher;
+
+window.Echo = new Echo({
+    broadcaster: 'reverb',
+    key: import.meta.env.VITE_REVERB_APP_KEY ?? 'sim-skripsi-key',
+    wsHost: import.meta.env.VITE_REVERB_HOST ?? window.location.hostname,
+    wsPort: import.meta.env.VITE_REVERB_PORT ?? 8080,
+    wssPort: import.meta.env.VITE_REVERB_PORT ?? 8080,
+    forceTLS: (import.meta.env.VITE_REVERB_SCHEME ?? 'http') === 'https',
+    enabledTransports: ['ws', 'wss'],
+});

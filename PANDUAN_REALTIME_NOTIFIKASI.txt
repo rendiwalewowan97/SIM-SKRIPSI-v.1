@@ -1,0 +1,41 @@
+PANDUAN NOTIFIKASI REAL-TIME SIM SKRIPSI
+========================================
+
+Project ini sudah dipasang patch notifikasi real-time menggunakan Laravel Reverb + Laravel Echo.
+
+Fitur yang dibuat real-time:
+1. Mahasiswa mengirim/memperbarui bimbingan ke dosen.
+2. Dosen memberi review/catatan bimbingan ke mahasiswa.
+3. Mahasiswa dan dosen melakukan chat.
+4. Jurusan mengubah status judul menjadi disetujui/ditolak/revisi dan menetapkan pembimbing.
+5. Arsip skripsi lengkap ketika file skripsi dan abstrak sudah diupload.
+
+File penting yang ditambahkan/diubah:
+- app/Events/RealtimeNotificationCreated.php
+- app/Models/Notification.php
+- routes/channels.php
+- config/broadcasting.php
+- config/reverb.php
+- bootstrap/app.php
+- resources/js/bootstrap.js
+- resources/js/app.js
+- resources/views/layouts/app.blade.php
+- app/Http/Controllers/ThesisArchiveController.php
+- composer.json
+- package.json
+- .env
+- .env.example
+
+Cara menjalankan:
+1. composer update
+2. npm install
+3. php artisan config:clear
+4. php artisan route:clear
+5. npm run dev
+6. Buka terminal baru: php artisan reverb:start
+7. Buka terminal baru lagi: php artisan serve
+
+Catatan:
+- Jangan tutup terminal npm run dev, reverb:start, dan artisan serve saat testing.
+- Testing real-time paling mudah menggunakan 2 browser berbeda, misalnya Chrome sebagai mahasiswa dan Edge sebagai dosen.
+- Jika badge notifikasi tidak bertambah, pastikan REVERB_PORT=8080 tidak dipakai aplikasi lain.
