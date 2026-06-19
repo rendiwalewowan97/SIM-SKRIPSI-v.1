@@ -1,24 +1,24 @@
-@extends('layouts.app')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 
 <div class="mb-4 flex items-center justify-between">
     <h1 class="text-2xl font-bold">Arsip Skripsi</h1>
 
  
-@if(auth()->user()->isJurusan() || auth()->user()->isKetuaJurusan() || auth()->user()->isMahasiswa())
-    <a href="{{ route('archives.create') }}"
+<?php if(auth()->user()->isJurusan() || auth()->user()->isKetuaJurusan() || auth()->user()->isMahasiswa()): ?>
+    <a href="<?php echo e(route('archives.create')); ?>"
        class="rounded bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700">
         Tambah Arsip
     </a>
-@endif
+<?php endif; ?>
  
 
 </div>
 
 <form class="mb-4 flex gap-2">
     <input name="q"
-           value="{{ request('q') }}"
+           value="<?php echo e(request('q')); ?>"
            class="w-full rounded border p-2"
            placeholder="Cari judul, keyword, tahun">
 
@@ -47,50 +47,56 @@
 
  
     <tbody>
-    @forelse($items as $a)
+    <?php $__empty_1 = true; $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $a): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
         <tr class="border-t text-center hover:bg-slate-50">
 
             <td class="p-3">
-                {{ $items->firstItem() + $loop->index }}
+                <?php echo e($items->firstItem() + $loop->index); ?>
+
             </td>
 
             <td class="p-3 font-medium">
-                {{ $a->title }}
+                <?php echo e($a->title); ?>
+
             </td>
 
             <td class="p-3">
-                {{ $a->student->identifier ?? '-' }}
+                <?php echo e($a->student->identifier ?? '-'); ?>
+
             </td>
 
             <td class="p-3">
-                {{ $a->student->name ?? '-' }}
+                <?php echo e($a->student->name ?? '-'); ?>
+
             </td>
 
             <td class="p-3">
-                {{ $a->year }}
+                <?php echo e($a->year); ?>
+
             </td>
 
             <td class="p-3">
-                {{ $a->keywords ?? '-' }}
+                <?php echo e($a->keywords ?? '-'); ?>
+
             </td>
 
             <td class="p-3">
-                @if($a->is_public)
+                <?php if($a->is_public): ?>
                     <span class="rounded bg-green-100 px-2 py-1 text-xs font-semibold text-green-700">
                         Published
                     </span>
-                @else
+                <?php else: ?>
                     <span class="rounded bg-yellow-100 px-2 py-1 text-xs font-semibold text-yellow-700">
                         Menunggu Publish
                     </span>
-                @endif
+                <?php endif; ?>
             </td>
 
             <td class="p-3">
                 <div class="flex items-center justify-center gap-3">
 
-                    {{-- Detail --}}
-                    <a href="{{ route('archives.show', $a) }}"
+                    
+                    <a href="<?php echo e(route('archives.show', $a)); ?>"
                        title="Detail Arsip"
                        class="text-indigo-700 hover:text-indigo-900">
 
@@ -110,15 +116,15 @@
 
                     </a>
 
-                    {{-- Publish / Unpublish --}}
-                    @if(auth()->user()->isJurusan() || auth()->user()->isKetuaJurusan())
+                    
+                    <?php if(auth()->user()->isJurusan() || auth()->user()->isKetuaJurusan()): ?>
 
-                        @if(!$a->is_public)
+                        <?php if(!$a->is_public): ?>
 
                             <form method="POST"
-                                  action="{{ route('archives.publish', $a) }}">
-                                @csrf
-                                @method('PATCH')
+                                  action="<?php echo e(route('archives.publish', $a)); ?>">
+                                <?php echo csrf_field(); ?>
+                                <?php echo method_field('PATCH'); ?>
 
                                 <button type="submit"
                                         title="Publish Arsip"
@@ -138,12 +144,12 @@
                                 </button>
                             </form>
 
-                        @else
+                        <?php else: ?>
 
                             <form method="POST"
-                                  action="{{ route('archives.unpublish', $a) }}">
-                                @csrf
-                                @method('PATCH')
+                                  action="<?php echo e(route('archives.unpublish', $a)); ?>">
+                                <?php echo csrf_field(); ?>
+                                <?php echo method_field('PATCH'); ?>
 
                                 <button type="submit"
                                         title="Batalkan Publish"
@@ -163,20 +169,20 @@
                                 </button>
                             </form>
 
-                        @endif
+                        <?php endif; ?>
 
-                    @endif
+                    <?php endif; ?>
 
-                    {{-- Edit --}}
-                    @if(
+                    
+                    <?php if(
                         auth()->user()->isJurusan() ||
                         auth()->user()->isKetuaJurusan() ||
                         (
                             $a->student_id === auth()->id() &&
                             !$a->is_public
                         )
-                    )
-                        <a href="{{ route('archives.edit', $a) }}"
+                    ): ?>
+                        <a href="<?php echo e(route('archives.edit', $a)); ?>"
                            class="text-blue-700 hover:text-blue-900"
                            title="Edit Arsip">
 
@@ -191,17 +197,17 @@
                             </svg>
 
                         </a>
-                    @endif
+                    <?php endif; ?>
 
-                    {{-- Hapus --}}
-                    @if(auth()->user()->isJurusan() || auth()->user()->isKetuaJurusan())
+                    
+                    <?php if(auth()->user()->isJurusan() || auth()->user()->isKetuaJurusan()): ?>
 
                         <form method="POST"
-                              action="{{ route('archives.destroy', $a) }}"
+                              action="<?php echo e(route('archives.destroy', $a)); ?>"
                               onsubmit="return confirm('Yakin ingin menghapus arsip ini?')">
 
-                            @csrf
-                            @method('DELETE')
+                            <?php echo csrf_field(); ?>
+                            <?php echo method_field('DELETE'); ?>
 
                             <button type="submit"
                                     class="text-red-600 hover:text-red-800"
@@ -221,19 +227,19 @@
 
                         </form>
 
-                    @endif
+                    <?php endif; ?>
 
                 </div>
             </td>
 
         </tr>
-    @empty
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
         <tr>
             <td colspan="8" class="p-4 text-center text-slate-500">
                 Belum ada arsip.
             </td>
         </tr>
-    @endforelse
+    <?php endif; ?>
     </tbody>
 </table>
  
@@ -241,6 +247,9 @@
 </div>
 
 <div class="mt-4">
-    {{ $items->links() }}
+    <?php echo e($items->links()); ?>
+
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW\resources\views/archives/index.blade.php ENDPATH**/ ?>

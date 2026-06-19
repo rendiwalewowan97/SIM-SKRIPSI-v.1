@@ -47,6 +47,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/archives/{archive}/download/{type}', [ThesisArchiveController::class, 'download'])->name('archives.download');
     Route::resource('archives', ThesisArchiveController::class);
 
+    // untuk publish
+    Route::patch('/archives/{archive}/publish', [ThesisArchiveController::class, 'publish'])
+    ->name('archives.publish');
+    Route::patch('/archives/{archive}/unpublish', [ThesisArchiveController::class, 'unpublish'])
+    ->name('archives.unpublish');
+
     Route::get('/progress', [ProgressController::class, 'index'])->name('progress.index');
     Route::get('/progress/{student}', [ProgressController::class, 'show'])->name('progress.show');
     Route::get('/supervisions', [SupervisionController::class, 'index'])->name('supervisions.index');

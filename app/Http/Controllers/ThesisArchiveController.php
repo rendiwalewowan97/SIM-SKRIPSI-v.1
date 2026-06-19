@@ -13,23 +13,35 @@ class ThesisArchiveController extends Controller
     public function index(Request $request)
     {
         $items = ThesisArchive::with('student')
-            ->when(!auth()->user()->isJurusan() && !auth()->user()->isKetuaJurusan(), fn($q)=>$q->where(function($qq){
-                $qq->where('is_public',true)->orWhere('student_id',auth()->id());
-            }))
-            ->when($request->q, fn($q,$v)=>$q->where(function($qq) use ($v){
-                $qq->where('title','like',"%$v%")
-                   ->orWhere('keywords','like',"%$v%")
-                   ->orWhere('year','like',"%$v%");
-            }))
-            ->latest()->paginate(10)->withQueryString();
+            ->when(!auth()->user()->isJurusan() && !auth()->user()->isKetuaJurusan(), function ($q) {
+                $q->where('is_public', true);
+            })
+            ->when($request->q, function ($q, $v) {
+                $q->where(function ($qq) use ($v) {
+                    $qq->where('title', 'like', "%$v%")
+                    ->orWhere('keywords', 'like', "%$v%")
+                    ->orWhere('year', 'like', "%$v%");
+                });
+            })
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
 
         return view('archives.index', compact('items'));
     }
 
+    // baru diubah
     public function create()
     {
+        abort_unless(
+            auth()->user()->isJurusan() ||
+            auth()->user()->isKetuaJurusan() ||
+            auth()->user()->isMahasiswa(),
+            403
+        );
+
         return view('archives.create', [
-            'students'=>User::where('role','mahasiswa')->orderBy('name')->get()
+            'students' => User::where('role', 'mahasiswa')->orderBy('name')->get()
         ]);
     }
 
@@ -57,10 +69,24 @@ class ThesisArchiveController extends Controller
         }
 
         unset($data['file'], $data['abstract']);
-        $data['is_public'] = $request->boolean('is_public', true);
+
+        // $data['is_public'] = $request->boolean('is_public', true);
+      
+        $data['is_public'] = auth()->user()->isJurusan() || auth()->user()->isKetuaJurusan()
+        ? $request->boolean('is_public', true)
+        : false;
 
         $archive = ThesisArchive::create($data);
-        $this->notifyArchiveComplete($archive);
+        if (auth()->user()->isMahasiswa()) {
+            foreach (User::whereIn('role', ['jurusan', 'ketua_jurusan'])->get() as $jurusan) {
+                Notification::create([
+                    'user_id' => $jurusan->id,
+                    'title' => 'Pengajuan arsip skripsi baru',
+                    'message' => auth()->user()->name.' mengajukan arsip skripsi dengan judul "'.$archive->title.'".',
+                    'url' => route('archives.show', $archive),
+                ]);
+            }
+        }
 
         return redirect()->route('archives.index')->with('success','Arsip skripsi berhasil disimpan.');
     }
@@ -86,10 +112,17 @@ class ThesisArchiveController extends Controller
 
     public function download(ThesisArchive $archive, string $type)
     {
+        abort_if(auth()->user()->isMahasiswa(), 403);
+
         $this->authorizeArchive($archive);
 
         [$absolutePath, $fileName] = $this->resolveArchiveFile($archive, $type);
-        abort_unless($absolutePath && File::exists($absolutePath), 404, 'File tidak ditemukan di local project.');
+
+        abort_unless(
+            $absolutePath && File::exists($absolutePath),
+            404,
+            'File tidak ditemukan di local project.'
+        );
 
         return response()->download($absolutePath, $fileName);
     }
@@ -139,7 +172,6 @@ class ThesisArchiveController extends Controller
 
         $archive->update($data);
         $archive->refresh();
-        $this->notifyArchiveComplete($archive);
 
         return redirect()->route('archives.show', $archive)->with('success','Arsip skripsi diperbarui.');
     }
@@ -163,32 +195,32 @@ class ThesisArchiveController extends Controller
         );
     }
 
-    private function notifyArchiveComplete(ThesisArchive $archive): void
-    {
-        if (!$archive->file_path || !$archive->abstract_path) {
-            return;
-        }
+    // private function notifyArchiveComplete(ThesisArchive $archive): void
+    // {
+    //     if (!$archive->file_path || !$archive->abstract_path) {
+    //         return;
+    //     }
 
-        $studentName = $archive->student->name ?? 'Mahasiswa';
+    //     $studentName = $archive->student->name ?? 'Mahasiswa';
 
-        if ($archive->student_id) {
-            Notification::create([
-                'user_id' => $archive->student_id,
-                'title' => 'Arsip skripsi lengkap',
-                'message' => 'File skripsi dan abstrak Anda sudah lengkap di arsip.',
-                'url' => route('archives.show', $archive),
-            ]);
-        }
+    //     if ($archive->student_id) {
+    //         Notification::create([
+    //             'user_id' => $archive->student_id,
+    //             'title' => 'Arsip skripsi lengkap',
+    //             'message' => 'File skripsi dan abstrak Anda sudah lengkap di arsip.',
+    //             'url' => route('archives.show', $archive),
+    //         ]);
+    //     }
 
-        foreach (User::where('role', 'jurusan')->get() as $jurusan) {
-            Notification::create([
-                'user_id' => $jurusan->id,
-                'title' => 'Arsip skripsi lengkap',
-                'message' => $studentName.' sudah mengupload file skripsi dan abstrak lengkap.',
-                'url' => route('archives.show', $archive),
-            ]);
-        }
-    }
+    //     foreach (User::where('role', 'jurusan')->get() as $jurusan) {
+    //         Notification::create([
+    //             'user_id' => $jurusan->id,
+    //             'title' => 'Arsip skripsi lengkap',
+    //             'message' => $studentName.' sudah mengupload file skripsi dan abstrak lengkap.',
+    //             'url' => route('archives.show', $archive),
+    //         ]);
+    //     }
+    // }
 
     private function uploadToPublic($file, string $prefix): string
     {
@@ -246,4 +278,37 @@ class ThesisArchiveController extends Controller
             Storage::disk('public')->delete($relativePath);
         }
     }
+
+    // tambahan untuk publish skripsi
+        public function publish(ThesisArchive $archive)
+        {
+            abort_unless(auth()->user()->isJurusan() || auth()->user()->isKetuaJurusan(), 403);
+
+            $archive->update([
+                'is_public' => true,
+            ]);
+
+            if ($archive->student_id) {
+                Notification::create([
+                    'user_id' => $archive->student_id,
+                    'title' => 'Arsip skripsi dipublish',
+                    'message' => 'Arsip skripsi Anda dengan judul "'.$archive->title.'" sudah lengkap dan dipublish, dapat dilihat di daftar arsip.',
+                    'url' => route('archives.show', $archive),
+                ]);
+            }
+
+            return back()->with('success', 'Arsip berhasil dipublish dan notifikasi dikirim ke mahasiswa.');
+        }
+
+    public function unpublish(ThesisArchive $archive)
+    {
+        abort_unless(auth()->user()->isJurusan() || auth()->user()->isKetuaJurusan(), 403);
+
+        $archive->update([
+            'is_public' => false,
+        ]);
+
+        return back()->with('success', 'Publish arsip berhasil dibatalkan.');
+    }
+
 }
