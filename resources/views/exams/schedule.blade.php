@@ -9,7 +9,7 @@
         <div class="mt-2"><b>Dokumen:</b>
             <ul class="list-disc pl-6">
             @foreach($exam->documents as $label => $path)
-                <li><a class="text-indigo-700" target="_blank" href="{{ asset('storage/'.$path) }}">{{ ucwords(str_replace('_',' ', $label)) }}</a></li>
+                <li><a class="text-indigo-700" target="_blank" href="{{ route('exams.document', $exam) }}?path={{ urlencode($path) }}">{{ ucwords(str_replace('_',' ', $label)) }}</a></li>
             @endforeach
             </ul>
         </div>

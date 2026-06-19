@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'vitra/sim-skripsi-bimbingan',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '987704085daa657272f0c0174a5bcd5d5f7646d5',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -1404,9 +1404,9 @@
             'dev_requirement' => false,
         ),
         'vitra/sim-skripsi-bimbingan' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '987704085daa657272f0c0174a5bcd5d5f7646d5',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

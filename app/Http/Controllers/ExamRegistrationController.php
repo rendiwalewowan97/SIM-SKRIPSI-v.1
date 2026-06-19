@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\{ExamRegistration, GuidanceSession, Notification, TitleSubmission, User, AppSetting};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ExamRegistrationController extends Controller
 {
@@ -104,6 +105,18 @@ class ExamRegistrationController extends Controller
         $exam->load('student','supervisor1','supervisor2','examiner1','examiner2','examiner3','chairman','secretary');
         return view('exams.show', compact('exam'));
     }
+
+    public function document(Request $request, ExamRegistration $exam)
+    {
+        abort_unless(auth()->user()->isJurusan() || $exam->student_id === auth()->id(), 403);
+
+        $path = $request->query('path');
+        abort_unless($path && !str_contains($path, '..') && !Str::startsWith($path, ['/', '\\']), 404, 'File tidak ditemukan.');
+        abort_unless(Storage::disk('public')->exists($path), 404, 'File tidak ditemukan.');
+
+        return response()->file(Storage::disk('public')->path($path));
+    }
+
     public function edit(ExamRegistration $exam){ abort_unless(auth()->user()->isJurusan(), 403); $dosens=User::where('role','dosen')->orderBy('name')->get(); return view('exams.schedule', compact('exam','dosens')); }
     public function update(Request $request, ExamRegistration $exam){ return $this->verify($request, $exam); }
     public function verify(Request $request, ExamRegistration $exam)

@@ -29,4 +29,4 @@ foreach ($attributes->all() as $__key => $__value) {
 unset($__defined_vars, $__key, $__value); ?>
 <?php $map=['diajukan'=>'bg-yellow-100 text-yellow-800','menunggu'=>'bg-yellow-100 text-yellow-800','disetujui'=>'bg-green-100 text-green-800','diverifikasi'=>'bg-blue-100 text-blue-800','dijadwalkan'=>'bg-indigo-100 text-indigo-800','selesai'=>'bg-green-100 text-green-800','ditolak'=>'bg-red-100 text-red-800','revisi'=>'bg-orange-100 text-orange-800','direview'=>'bg-blue-100 text-blue-800']; ?>
 <span class="rounded px-2 py-1 text-xs font-semibold <?php echo e($map[$value] ?? 'bg-slate-100 text-slate-700'); ?>"><?php echo e(strtoupper(str_replace('_',' ', $value))); ?></span>
-<?php /**PATH D:\SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW\resources\views/components/status.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\PROJECT\SKRIPSI ORANG\SIM-SKRIPSI-v.1\resources\views/components/status.blade.php ENDPATH**/ ?>

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\{GuidanceSession, User, TitleSubmission, Notification};
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class GuidanceSessionController extends Controller
@@ -77,6 +78,15 @@ class GuidanceSessionController extends Controller
     {
         $this->authorizeView($guidance);
         return view('guidances.show', compact('guidance'));
+    }
+
+    public function file(GuidanceSession $guidance)
+    {
+        $this->authorizeView($guidance);
+
+        abort_unless($guidance->file_path && Storage::disk('public')->exists($guidance->file_path), 404, 'File tidak ditemukan.');
+
+        return response()->file(Storage::disk('public')->path($guidance->file_path));
     }
 
     public function edit(GuidanceSession $guidance)

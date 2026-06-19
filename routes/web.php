@@ -34,9 +34,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/titles/{title}/vote', [TitleSubmissionController::class, 'vote'])->name('titles.vote');
 
     Route::get('/guidances-letter', [GuidanceSessionController::class, 'letter'])->name('guidances.letter');
+    Route::get('/guidances/{guidance}/file', [GuidanceSessionController::class, 'file'])->name('guidances.file');
     Route::resource('guidances', GuidanceSessionController::class);
     Route::post('/guidances/{guidance}/review', [GuidanceSessionController::class, 'review'])->name('guidances.review');
 
+    Route::get('/exams/{exam}/document', [ExamRegistrationController::class, 'document'])->name('exams.document');
     Route::resource('exams', ExamRegistrationController::class);
     Route::post('/exams/{exam}/verify', [ExamRegistrationController::class, 'verify'])->name('exams.verify');
     Route::post('/exams/{exam}/finish', [ExamRegistrationController::class, 'finish'])->name('exams.finish');

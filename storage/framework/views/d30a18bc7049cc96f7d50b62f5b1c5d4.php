@@ -5,4 +5,4 @@
 <div class="mt-4 rounded bg-slate-50 p-3 text-sm text-slate-600"><b>Akun demo:</b><br>jurusan@unmus.ac.id / password<br>dosen@unmus.ac.id / password<br>mahasiswa@unmus.ac.id / password</div></div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.guest', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW\resources\views/auth/login.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.guest', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\PROJECT\SKRIPSI ORANG\SIM-SKRIPSI-v.1\resources\views/auth/login.blade.php ENDPATH**/ ?>

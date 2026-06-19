@@ -117,7 +117,7 @@
                 File Bimbingan
             </h2>
 
-            <a href="<?php echo e(asset('storage/'.$guidance->file_path)); ?>"
+            <a href="<?php echo e(route('guidances.file', $guidance)); ?>"
                target="_blank"
                class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-white transition hover:bg-indigo-700">
 
@@ -140,4 +140,4 @@
     </div>
 </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW\resources\views/guidances/show.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\PROJECT\SKRIPSI ORANG\SIM-SKRIPSI-v.1\resources\views/guidances/show.blade.php ENDPATH**/ ?>

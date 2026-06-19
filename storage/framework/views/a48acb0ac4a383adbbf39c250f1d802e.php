@@ -238,4 +238,4 @@
 </body>
 </html>
 
-<?php /**PATH D:\SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW\resources\views/layouts/app.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\PROJECT\SKRIPSI ORANG\SIM-SKRIPSI-v.1\resources\views/layouts/app.blade.php ENDPATH**/ ?>

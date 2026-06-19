@@ -32,4 +32,4 @@
         </div>
     </body>
 </html>
-<?php /**PATH D:\SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions/views/minimal.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\PROJECT\SKRIPSI ORANG\SIM-SKRIPSI-v.1\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions/views/minimal.blade.php ENDPATH**/ ?>

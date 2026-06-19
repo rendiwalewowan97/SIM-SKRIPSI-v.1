@@ -101,7 +101,7 @@
         <a
             class="text-indigo-700"
             target="_blank"
-            href="{{ asset('storage/' . $guidance->file_path) }}">
+            href="{{ route('guidances.file', $guidance) }}">
             Download
         </a>
     </p>

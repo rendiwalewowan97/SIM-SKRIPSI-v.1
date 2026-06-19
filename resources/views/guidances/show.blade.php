@@ -92,7 +92,7 @@
                 File Bimbingan
             </h2>
 
-            <a href="{{ asset('storage/'.$guidance->file_path) }}"
+            <a href="{{ route('guidances.file', $guidance) }}"
                target="_blank"
                class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-white transition hover:bg-indigo-700">
 

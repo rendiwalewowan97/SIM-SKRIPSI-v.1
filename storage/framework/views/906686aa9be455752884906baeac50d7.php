@@ -80,4 +80,4 @@
     </div>
 
 </body>
-</html><?php /**PATH D:\SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW\resources\views/layouts/guest.blade.php ENDPATH**/ ?>
+</html><?php /**PATH D:\PROJECT\SKRIPSI ORANG\SIM-SKRIPSI-v.1\resources\views/layouts/guest.blade.php ENDPATH**/ ?>
