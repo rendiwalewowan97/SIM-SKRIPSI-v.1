@@ -132,6 +132,7 @@ class ExamRegistrationController extends Controller
     }
     public function finish(ExamRegistration $exam){ abort_unless(auth()->user()->isJurusan(), 403); $exam->update(['status'=>'selesai']); Notification::create(['user_id'=>$exam->student_id,'title'=>'Sidang selesai','message'=>'Status sidang Anda telah ditandai selesai.','url'=>route('exams.show',$exam)]); return back()->with('success','Sidang ditandai selesai.'); }
     public function destroy(ExamRegistration $exam){ abort_unless(auth()->user()->isJurusan() || ($exam->student_id === auth()->id() && $exam->status === 'diajukan'), 403); $exam->delete(); return redirect()->route('exams.index')->with('success','Pendaftaran sidang dihapus.'); }
+    
     public function scheduleLetter(ExamRegistration $exam)
     {
         $exam->load('student','supervisor1','supervisor2','examiner1','examiner2','examiner3','chairman','secretary');
@@ -142,9 +143,50 @@ class ExamRegistrationController extends Controller
             ->latest()
             ->first();
 
-        $ketuaJurusan = User::where('role', 'dosen')->where('position', 'ketua_jurusan')->first();
+        $sameDayExams = collect();
+
+        if ($exam->scheduled_at) {
+            $sameDayExams = ExamRegistration::with([
+                    'student',
+                    'supervisor1',
+                    'supervisor2',
+                    'examiner1',
+                    'examiner2',
+                    'examiner3',
+                    'chairman',
+                    'secretary',
+                ])
+                ->whereDate('scheduled_at', $exam->scheduled_at->toDateString())
+                ->where('status', 'dijadwalkan')
+                ->orderBy('scheduled_at')
+                ->get();
+        } else {
+            $sameDayExams = collect([$exam]);
+        }
+
+        $studentIds = $sameDayExams->pluck('student_id')->filter()->unique();
+
+        $examTitles = TitleSubmission::with('supervisor','supervisor1','supervisor2')
+            ->whereIn('student_id', $studentIds)
+            ->where('status', 'disetujui')
+            ->latest()
+            ->get()
+            ->groupBy('student_id');
+
+        $ketuaJurusan = User::where('role', 'dosen')
+            ->where('position', 'ketua_jurusan')
+            ->first();
+
         $chairName = $ketuaJurusan->name ?? AppSetting::getValue('ketua_jurusan_name', 'Nama Ketua Jurusan');
         $chairNip = $ketuaJurusan->identifier ?? AppSetting::getValue('ketua_jurusan_nip', '-');
-        return view('exams.schedule-letter', compact('exam','examTitle','chairName','chairNip')); 
+
+        return view('exams.schedule-letter', compact(
+            'exam',
+            'examTitle',
+            'sameDayExams',
+            'examTitles',
+            'chairName',
+            'chairNip'
+        ));
     }
 }

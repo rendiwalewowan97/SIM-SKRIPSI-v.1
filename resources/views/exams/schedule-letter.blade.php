@@ -7,11 +7,10 @@
 </head>
 
 <body class="bg-white p-8 text-slate-900">
-<div class="mx-auto max-w-4xl text-[15px] leading-relaxed">
+<div class="mx-auto max-w-6xl text-[15px] leading-relaxed">
 
     <!-- KOP SURAT -->
     <div class="relative min-h-[120px]">
-
         <img src="{{ asset('images/logo-unmus.png') }}"
              alt="Logo UNMUS"
              class="absolute left-0 top-0 h-24 w-24">
@@ -32,12 +31,11 @@
 
     <hr class="my-5 border-2 border-slate-900">
 
-    <!-- NOMOR SURAT -->
     <table class="mb-5 w-full">
         <tr>
             <td class="w-24 py-1">Nomor</td>
             <td class="w-4">:</td>
-            <td>.../.../.../2026</td>
+            <td>.../.../.../{{ now()->format('Y') }}</td>
             <td class="text-right">Merauke, {{ now()->locale('id')->translatedFormat('d F Y') }}</td>
         </tr>
         <tr>
@@ -48,7 +46,7 @@
         <tr>
             <td class="py-1">Perihal</td>
             <td>:</td>
-            <td colspan="2">Undangan Proposal/Skripsi</td>
+            <td colspan="2">Undangan {{ $exam->type == 'seminar_proposal' ? 'Proposal' : 'Skripsi' }}</td>
         </tr>
     </table>
 
@@ -126,7 +124,6 @@
     <div class="mt-20 page-break-before">
 
         <div class="relative min-h-[120px]">
-
             <img src="{{ asset('images/logo-unmus.png') }}"
                  alt="Logo UNMUS"
                  class="absolute left-0 top-0 h-24 w-24">
@@ -147,12 +144,29 @@
 
         <hr class="my-5 border-2 border-slate-900">
 
+        @php
+            $jadwal = $exam->scheduled_at ?? now();
+
+            $bulan = $jadwal->month;
+
+            if ($bulan >= 7) {
+                $semester = 'Ganjil';
+                $tahunAkademik = $jadwal->year . '/' . ($jadwal->year + 1);
+            } else {
+                $semester = 'Genap';
+                $tahunAkademik = ($jadwal->year - 1) . '/' . $jadwal->year;
+            }
+        @endphp
+
         <div class="mb-4 text-center font-bold uppercase">
-            <p>Jadwal Ujian Proposal/Skripsi</p>
-            <p>Semester Ganjil/Genap Tahun Akademik 2026/2027</p>
+            <p>Jadwal Ujian {{ $exam->type == 'seminar_proposal' ? 'Proposal' : 'Skripsi' }}</p>
+            <p>
+                Semester {{ $semester }}
+                Tahun Akademik {{ $tahunAkademik }}
+            </p>
         </div>
 
-        <table class="w-full border-collapse text-[12px]">
+        <table class="w-full border-collapse text-[11px]">
             <thead>
                 <tr>
                     <th class="border border-black p-2">HARI/<br>TANGGAL</th>
@@ -167,41 +181,67 @@
                     <th class="border border-black p-2">SEKRETARIS</th>
                 </tr>
             </thead>
+
             <tbody>
-                <tr>
-                    <td class="border border-black p-2 text-center">
-                        {{ $exam->scheduled_at ? $exam->scheduled_at->locale('id')->translatedFormat('l') : '-' }}<br>
-                        {{ $exam->scheduled_at ? $exam->scheduled_at->locale('id')->translatedFormat('d F Y') : '-' }}
-                    </td>
-                    <td class="border border-black p-2 text-center">1</td>
-                    <td class="border border-black p-2 text-center">
-                        {{ $exam->scheduled_at ? $exam->scheduled_at->format('H:i') : '-' }}
-                    </td>
-                    <td class="border border-black p-2">
-                        {{ $exam->student->name ?? '-' }}
-                    </td>
-                    <td class="border border-black p-2">
-                        {{ $exam->student->identifier ?? '-' }}
-                    </td>
-                    <td class="border border-black p-2">
-                        {{ $examTitle->title ?? '-' }}
-                    </td>
-                    <td class="border border-black p-2">
-                        1. {{ $exam->supervisor1->name ?? $examTitle->supervisor1->name ?? $examTitle->supervisor->name ?? '-' }}<br>
-                        2. {{ $exam->supervisor2->name ?? $examTitle->supervisor2->name ?? '-' }}
-                    </td>
-                    <td class="border border-black p-2">
-                        1. {{ $exam->examiner1->name ?? '-' }}<br>
-                        2. {{ $exam->examiner2->name ?? '-' }}<br>
-                        3. {{ $exam->examiner3->name ?? '-' }}
-                    </td>
-                    <td class="border border-black p-2">
-                        {{ $exam->chairman->name ?? '-' }}
-                    </td>
-                    <td class="border border-black p-2">
-                        {{ $exam->secretary->name ?? '-' }}
-                    </td>
-                </tr>
+                @forelse($sameDayExams as $index => $item)
+                    @php
+                        $title = $examTitles[$item->student_id][0] ?? null;
+                    @endphp
+
+                    <tr>
+                        @if($index === 0)
+                            <td class="border border-black p-2 text-center align-middle" rowspan="{{ $sameDayExams->count() }}">
+                                {{ $item->scheduled_at ? $item->scheduled_at->locale('id')->translatedFormat('l') : '-' }}<br>
+                                {{ $item->scheduled_at ? $item->scheduled_at->locale('id')->translatedFormat('d F Y') : '-' }}
+                            </td>
+                        @endif
+
+                        <td class="border border-black p-2 text-center">
+                            {{ $index + 1 }}
+                        </td>
+
+                        <td class="border border-black p-2 text-center">
+                            {{ $item->scheduled_at ? $item->scheduled_at->format('H:i') : '-' }}
+                        </td>
+
+                        <td class="border border-black p-2">
+                            {{ $item->student->name ?? '-' }}
+                        </td>
+
+                        <td class="border border-black p-2">
+                            {{ $item->student->identifier ?? '-' }}
+                        </td>
+
+                        <td class="border border-black p-2">
+                            {{ $title->title ?? '-' }}
+                        </td>
+
+                        <td class="border border-black p-2">
+                            1. {{ $item->supervisor1->name ?? $title->supervisor1->name ?? $title->supervisor->name ?? '-' }}<br>
+                            2. {{ $item->supervisor2->name ?? $title->supervisor2->name ?? '-' }}
+                        </td>
+
+                        <td class="border border-black p-2">
+                            1. {{ $item->examiner1->name ?? '-' }}<br>
+                            2. {{ $item->examiner2->name ?? '-' }}<br>
+                            3. {{ $item->examiner3->name ?? '-' }}
+                        </td>
+
+                        <td class="border border-black p-2">
+                            {{ $item->chairman->name ?? '-' }}
+                        </td>
+
+                        <td class="border border-black p-2">
+                            {{ $item->secretary->name ?? '-' }}
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="10" class="border border-black p-3 text-center">
+                            Belum ada jadwal sidang.
+                        </td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
 
@@ -229,6 +269,11 @@
     @media print {
         .page-break-before {
             page-break-before: always;
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 12mm;
         }
     }
 </style>
