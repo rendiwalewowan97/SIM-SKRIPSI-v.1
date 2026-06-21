@@ -1,2 +1,13 @@
-storage/firebase/
 .env
+.env.*
+
+/vendor
+/node_modules
+
+/storage/app/firebase/
+/storage/app/firebase/*.json
+
+/public/hot
+/public/storage
+
+.phpunit.result.cache

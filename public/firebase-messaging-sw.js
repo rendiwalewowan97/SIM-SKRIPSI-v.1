@@ -7,7 +7,7 @@ firebase.initializeApp({
     projectId: "sim-skripsi",
     storageBucket: "sim-skripsi.firebasestorage.app",
     messagingSenderId: "461969760443",
-    appId: "1:461969760443:web:7866f802134eecfc5dc99e"
+    appId: "1:461969760443:web:cdaa9804f4a06baa5dc99e"
 });
 
 const messaging = firebase.messaging();
