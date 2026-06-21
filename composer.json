@@ -12,9 +12,10 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "google/apiclient": "^2.19",
         "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.10",
         "laravel/reverb": "^1.5",
+        "laravel/tinker": "^2.10",
         "pusher/pusher-php-server": "^7.2"
     },
     "require-dev": {

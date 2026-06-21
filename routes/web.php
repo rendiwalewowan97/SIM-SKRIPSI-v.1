@@ -12,7 +12,8 @@ use App\Http\Controllers\{
     UserController,
     ProgressController,
     SupervisionController,
-    ChatController
+    ChatController,
+    FcmTokenController
     
 };
 
@@ -42,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('exams', ExamRegistrationController::class);
     Route::post('/exams/{exam}/verify', [ExamRegistrationController::class, 'verify'])->name('exams.verify');
     Route::post('/exams/{exam}/finish', [ExamRegistrationController::class, 'finish'])->name('exams.finish');
+    Route::get('/exams/{exam}/schedule-letter', [ExamRegistrationController::class, 'scheduleLetter'])->name('exams.schedule.letter');
 
     Route::get('/archives/{archive}/preview/{type}', [ThesisArchiveController::class, 'preview'])->name('archives.preview');
     Route::get('/archives/{archive}/download/{type}', [ThesisArchiveController::class, 'download'])->name('archives.download');
@@ -61,26 +63,24 @@ Route::middleware('auth')->group(function () {
     Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
     Route::post('/notifications/read-all', [NotificationController::class, 'readAll'])->name('notifications.readAll');
     Route::get('/notifications/{notification}/read', [NotificationController::class, 'read'])->name('notifications.read');
+    Route::delete('/notifications/{notification}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
+    Route::delete('/notifications-clear-read', [NotificationController::class, 'clearRead'])->name('notifications.clearRead');
+
 
     Route::middleware('role:jurusan')->group(function () {
         Route::resource('users', UserController::class)->except(['show']);
     });
 
-    Route::get('/exams/{exam}/schedule-letter', 
-    [ExamRegistrationController::class, 'scheduleLetter'])
-    ->name('exams.schedule.letter');
 
 
-    Route::get('/chats', [ChatController::class, 'index'])
-        ->name('chats.index');
+    // chat
+    Route::get('/chats', [ChatController::class, 'index'])->name('chats.index');
+    Route::get('/chats/{user}', [ChatController::class, 'show'])->name('chats.show');
+    Route::get('/chats/{user}/fetch', [ChatController::class, 'fetch'])->name('chats.fetch');
+    Route::post('/chats/{user}', [ChatController::class, 'store'])->name('chats.store');
 
-    Route::get('/chats/{user}', [ChatController::class, 'show'])
-        ->name('chats.show');
 
-    Route::get('/chats/{user}/fetch', [ChatController::class, 'fetch'])
-        ->name('chats.fetch');
-
-    Route::post('/chats/{user}', [ChatController::class, 'store'])
-        ->name('chats.store');
+    Route::middleware('auth')->post('/fcm-token', [FcmTokenController::class, 'store'])
+    ->name('fcm.token.store');
     
 });

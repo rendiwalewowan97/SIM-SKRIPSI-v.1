@@ -31,8 +31,7 @@ class User extends Authenticatable
     public function isDosen(): bool { return $this->role === 'dosen'; }
     public function isMahasiswa(): bool { return $this->role === 'mahasiswa'; }
 
-    public function titles()
-{
-    return $this->hasMany(TitleSubmission::class, 'student_id');
-}
+    public function titles(){ return $this->hasMany(TitleSubmission::class, 'student_id'); }
+
+    public function fcmTokens(){ return $this->hasMany(\App\Models\FcmToken::class); }
 }

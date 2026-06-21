@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\{TitleSubmission, TitleVote, User, Notification, AppSetting};
+use App\Services\FcmService;
 use Illuminate\Http\Request;
 
 class TitleSubmissionController extends Controller
@@ -52,13 +53,22 @@ class TitleSubmissionController extends Controller
             'status' => 'diajukan',
         ]);
 
-        foreach (User::where('role', 'jurusan')->get() as $jurusan) {
+        $jurusanUsers = User::where('role', 'jurusan')->get();
+
+        foreach ($jurusanUsers as $jurusan) {
             Notification::create([
                 'user_id' => $jurusan->id,
                 'title' => 'Pengajuan judul baru',
                 'message' => auth()->user()->name . ' mengajukan judul skripsi.',
                 'url' => route('titles.show', $title),
             ]);
+
+            app(FcmService::class)->sendToUser(
+                $jurusan,
+                'Pengajuan Judul Baru',
+                auth()->user()->name . ' mengajukan judul skripsi.',
+                route('titles.show', $title)
+            );
         }
 
         return redirect()->route('titles.index')->with('success', 'Judul berhasil diajukan.');
@@ -149,6 +159,13 @@ class TitleSubmissionController extends Controller
                 'url' => route('titles.show', $title),
             ]);
 
+            app(FcmService::class)->sendToUser(
+                $title->student,
+                'Judul Lolos Voting',
+                'Judul Anda lolos voting dosen. Selanjutnya jurusan akan menetapkan pembimbing 1 dan 2.',
+                route('titles.show', $title)
+            );
+
             foreach (User::where('role', 'jurusan')->get() as $jurusan) {
                 Notification::create([
                     'user_id' => $jurusan->id,
@@ -156,6 +173,13 @@ class TitleSubmissionController extends Controller
                     'message' => $title->student->name . ' telah lolos voting judul. Silakan tetapkan pembimbing.',
                     'url' => route('titles.edit', $title),
                 ]);
+
+                app(FcmService::class)->sendToUser(
+                    $jurusan,
+                    'Judul Lolos Voting',
+                    $title->student->name . ' telah lolos voting judul. Silakan tetapkan pembimbing.',
+                    route('titles.edit', $title)
+                );
             }
         }
 
@@ -173,7 +197,7 @@ class TitleSubmissionController extends Controller
             'notes' => 'nullable|string',
         ]);
 
-        $data['supervisor_id'] = $data['supervisor_1_id'] ?? null; // kompatibilitas dengan fitur lama
+        $data['supervisor_id'] = $data['supervisor_1_id'] ?? null;
         $data['approved_at'] = $data['status'] === 'disetujui'
             ? ($title->approved_at ?? now())
             : null;
@@ -183,10 +207,15 @@ class TitleSubmissionController extends Controller
 
         $title->update($data);
 
+        $title->load('student', 'supervisor1', 'supervisor2');
+
         $message = 'Status judul Anda: ' . strtoupper($title->status) . '.';
+
         if ($title->supervisor_1_id && $title->supervisor_2_id) {
-            $message .= ' Pembimbing 1 dan 2 telah ditetapkan.';
+            $message .= ' Pembimbing 1: ' . ($title->supervisor1->name ?? '-') .
+                        ', Pembimbing 2: ' . ($title->supervisor2->name ?? '-') . '.';
         }
+
         if ($title->notes) {
             $message .= ' Catatan: ' . $title->notes;
         }
@@ -198,7 +227,16 @@ class TitleSubmissionController extends Controller
             'url' => route('titles.show', $title),
         ]);
 
-        return redirect()->route('titles.index')->with('success', 'Alur judul dan pembimbing berhasil diperbarui.');
+        app(FcmService::class)->sendToUser(
+            $title->student,
+            'Status Pengajuan Judul',
+            $message,
+            route('titles.show', $title)
+        );
+
+        return redirect()
+            ->route('titles.index')
+            ->with('success', 'Alur judul dan pembimbing berhasil diperbarui.');
     }
 
     public function approvalLetter(TitleSubmission $title)

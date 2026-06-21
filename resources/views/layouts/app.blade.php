@@ -9,6 +9,97 @@
     @vite(['resources/js/app.js'])
 </head>
 
+@if(config('firebase.enabled') && auth()->check())
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+    import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-messaging.js";
+
+    const firebaseConfig = @json(config('firebase.web'));
+
+    const app = initializeApp(firebaseConfig);
+    const messaging = getMessaging(app);
+
+    async function initFcm() {
+        try {
+            if (!('Notification' in window)) {
+                console.log('Browser tidak mendukung notifikasi.');
+                return;
+            }
+
+            if (!('serviceWorker' in navigator)) {
+                console.log('Browser tidak mendukung service worker.');
+                return;
+            }
+
+            const permission = await Notification.requestPermission();
+
+            console.log('Notification permission:', permission);
+
+            if (permission !== 'granted') {
+                return;
+            }
+
+            const registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js');
+
+            console.log('Service Worker berhasil:', registration);
+
+            const token = await getToken(messaging, {
+                vapidKey: "{{ config('firebase.vapid_key') }}",
+                serviceWorkerRegistration: registration
+            });
+
+            console.log('FCM TOKEN:', token);
+
+            if (!token) {
+                console.log('Token FCM kosong.');
+                return;
+            }
+
+            const response = await fetch("{{ route('fcm.token.store') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    token: token
+                })
+            });
+
+            const result = await response.json();
+
+            console.log('Simpan token response:', result);
+
+        } catch (error) {
+            console.error('FCM ERROR:', error);
+        }
+    }
+
+    initFcm();
+
+    // NOTIF MUNCUL KETIKA BROWSER DIBUKA
+    // onMessage(messaging, (payload) => {
+    //     console.log('FCM foreground:', payload);
+
+    //     const title =
+    //         payload.notification?.title ||
+    //         payload.data?.title ||
+    //         'SIM Skripsi';
+
+    //     const body =
+    //         payload.notification?.body ||
+    //         payload.data?.body ||
+    //         'Anda memiliki notifikasi baru.';
+
+    //     new Notification(title, {
+    //         body: body,
+    //         icon: '/favicon.ico'
+    //     });
+    // });
+</script>
+@endif
+
 <body class="bg-slate-50 text-slate-800">
 
 <div class="flex min-h-screen">
@@ -60,7 +151,7 @@
                 📈 <span>Monitoring</span>
             </a>
 
-            <a href="{{ route('notifications.index') }}"
+            <!-- <a href="{{ route('notifications.index') }}"
                class="relative flex items-center gap-3 rounded px-3 py-2 transition hover:bg-[#74B3B5]">
                 🔔 <span>Notifikasi</span>
                 @php($unreadNotifications = auth()->user()->internalNotifications()->whereNull('read_at')->count())
@@ -68,7 +159,7 @@
                       class="{{ $unreadNotifications ? '' : 'hidden' }} ml-auto rounded-full bg-red-600 px-2 py-0.5 text-xs font-bold text-white">
                     {{ $unreadNotifications }}
                 </span>
-            </a>
+            </a> -->
 
             @if(auth()->user()->isJurusan())
             <a href="{{ route('users.index') }}"

@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\{ExamRegistration, GuidanceSession, Notification, TitleSubmission, User, AppSetting};
+use App\Services\FcmService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -92,7 +93,15 @@ class ExamRegistrationController extends Controller
                 'message' => auth()->user()->name . ' mendaftar ' . str_replace('_', ' ', $exam->type) . '.',
                 'url' => route('exams.edit', $exam),
             ]);
+
+            app(FcmService::class)->sendToUser(
+                $jurusan,
+                'Pendaftaran Sidang Baru',
+                auth()->user()->name . ' mendaftar ' . str_replace('_', ' ', $exam->type) . '.',
+                route('exams.edit', $exam)
+            );
         }
+        
 
         return redirect()
             ->route('exams.index')
@@ -119,16 +128,111 @@ class ExamRegistrationController extends Controller
 
     public function edit(ExamRegistration $exam){ abort_unless(auth()->user()->isJurusan(), 403); $dosens=User::where('role','dosen')->orderBy('name')->get(); return view('exams.schedule', compact('exam','dosens')); }
     public function update(Request $request, ExamRegistration $exam){ return $this->verify($request, $exam); }
+
     public function verify(Request $request, ExamRegistration $exam)
     {
         abort_unless(auth()->user()->isJurusan(), 403);
+
         $data = $request->validate([
-            'status'=>'required|in:diajukan,diverifikasi,dijadwalkan,ditolak,selesai','scheduled_at'=>'nullable|date','room'=>'nullable|string|max:100','notes'=>'nullable|string',
-            'supervisor_1_id'=>'nullable|exists:users,id','supervisor_2_id'=>'nullable|exists:users,id','examiner_1_id'=>'nullable|exists:users,id','examiner_2_id'=>'nullable|exists:users,id','examiner_3_id'=>'nullable|exists:users,id','chairman_id'=>'nullable|exists:users,id','secretary_id'=>'nullable|exists:users,id'
+            'status' => 'required|in:diajukan,diverifikasi,dijadwalkan,ditolak,selesai',
+            'scheduled_at' => 'nullable|date',
+            'room' => 'nullable|string|max:100',
+            'notes' => 'nullable|string',
+            'supervisor_1_id' => 'nullable|exists:users,id',
+            'supervisor_2_id' => 'nullable|exists:users,id',
+            'examiner_1_id' => 'nullable|exists:users,id',
+            'examiner_2_id' => 'nullable|exists:users,id',
+            'examiner_3_id' => 'nullable|exists:users,id',
+            'chairman_id' => 'nullable|exists:users,id',
+            'secretary_id' => 'nullable|exists:users,id',
         ]);
+
         $exam->update($data);
-        Notification::create(['user_id'=>$exam->student_id,'title'=>'Status pendaftaran sidang','message'=>'Status pendaftaran: '.strtoupper($exam->status),'url'=>route('exams.show',$exam)]);
-        return redirect()->route('exams.index')->with('success','Pendaftaran sidang diperbarui.');
+
+        $exam->load(
+            'student',
+            'supervisor1',
+            'supervisor2',
+            'examiner1',
+            'examiner2',
+            'examiner3',
+            'chairman',
+            'secretary'
+        );
+        
+        if ($exam->status === 'dijadwalkan') {
+
+            $message = 'Status pendaftaran sidang Anda: DIJADWALKAN.';
+
+            if ($exam->scheduled_at) {
+                $message .= ' Jadwal: ' . $exam->scheduled_at->format('d/m/Y H:i') . '.';
+            }
+
+            if ($exam->room) {
+                $message .= ' Ruangan: ' . $exam->room . '.';
+            }
+
+            if ($exam->chairman) {
+                $message .= ' Ketua Sidang: ' . $exam->chairman->name . '.';
+            }
+
+            if ($exam->secretary) {
+                $message .= ' Sekretaris: ' . $exam->secretary->name . '.';
+            }
+
+            if ($exam->examiner1) {
+                $message .= ' Penguji 1: ' . $exam->examiner1->name . '.';
+            }
+
+            if ($exam->examiner2) {
+                $message .= ' Penguji 2: ' . $exam->examiner2->name . '.';
+            }
+
+            if ($exam->examiner3) {
+                $message .= ' Penguji 3: ' . $exam->examiner3->name . '.';
+            }
+
+        } elseif ($exam->status === 'selesai') {
+
+            if ($exam->type === 'seminar_proposal') {
+
+                $message = 'Selamat, Anda sudah menyelesaikan tahap Seminar Proposal. Silakan melanjutkan ke tahap Bimbingan Skripsi.';
+
+            } elseif ($exam->type === 'sidang_skripsi') {
+
+                $message = 'Selamat, Anda sudah menyelesaikan Sidang Skripsi. Silakan melanjutkan ke tahap pengarsipan skripsi.';
+
+            } else {
+
+                $message = 'Selamat, Anda sudah menyelesaikan tahap ini.';
+            }
+
+        } else {
+
+            $message = 'Status pendaftaran sidang Anda: ' . strtoupper($exam->status) . '.';
+
+            if ($exam->notes) {
+                $message .= ' Catatan: ' . $exam->notes;
+            }
+        }
+
+        Notification::create([
+            'user_id' => $exam->student_id,
+            'title' => 'Status pendaftaran sidang',
+            'message' => $message,
+            'url' => route('exams.show', $exam),
+        ]);
+
+        app(FcmService::class)->sendToUser(
+            $exam->student,
+            'Status Pendaftaran Sidang',
+            $message,
+            route('exams.show', $exam)
+        );
+
+        return redirect()
+            ->route('exams.index')
+            ->with('success', 'Pendaftaran sidang diperbarui dan notifikasi dikirim ke mahasiswa.');
     }
     public function finish(ExamRegistration $exam){ abort_unless(auth()->user()->isJurusan(), 403); $exam->update(['status'=>'selesai']); Notification::create(['user_id'=>$exam->student_id,'title'=>'Sidang selesai','message'=>'Status sidang Anda telah ditandai selesai.','url'=>route('exams.show',$exam)]); return back()->with('success','Sidang ditandai selesai.'); }
     public function destroy(ExamRegistration $exam){ abort_unless(auth()->user()->isJurusan() || ($exam->student_id === auth()->id() && $exam->status === 'diajukan'), 403); $exam->delete(); return redirect()->route('exams.index')->with('success','Pendaftaran sidang dihapus.'); }
