@@ -15746,3 +15746,348 @@ Content-Transfer-Encoding: quoted-printable
 Vitra Mahasiswa mengirim pesan chat baru:
 
 tes  
+[2026-06-21 16:18:30] local.INFO: FCM RESPONSE {"status":403,"body":"{
+  \"error\": {
+    \"code\": 403,
+    \"message\": \"Permission 'cloudmessaging.messages.create' denied on resource '//cloudresourcemanager.googleapis.com/projects/sim-skripsi' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkwYi05MDhkLTc1OWYtYTY0NS0xNzM3OWZiZDZjYTISFHByb2plY3RzL3NpbS1za3JpcHNp .\",
+    \"status\": \"PERMISSION_DENIED\",
+    \"details\": [
+      {
+        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",
+        \"reason\": \"IAM_PERMISSION_DENIED\",
+        \"domain\": \"cloudresourcemanager.googleapis.com\",
+        \"metadata\": {
+          \"troubleshooter_url\": \"https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkwYi05MDhkLTc1OWYtYTY0NS0xNzM3OWZiZDZjYTISFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"error_info_id\": \"CiQwMTllZTkwYi05MDhkLTc1OWYtYTY0NS0xNzM3OWZiZDZjYTISFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"permission\": \"cloudmessaging.messages.create\",
+          \"resource\": \"projects/sim-skripsi\"
+        }
+      }
+    ]
+  }
+}
+"} 
+[2026-06-21 16:18:30] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Chat baru SIM Skripsi
+MIME-Version: 1.0
+Date: Sun, 21 Jun 2026 16:18:30 +0900
+Message-ID: <c9bb83d82b158fb2c7dac4765bbf5d55@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim pesan chat baru:
+
+tes  
+[2026-06-21 16:18:47] local.INFO: FCM RESPONSE {"status":403,"body":"{
+  \"error\": {
+    \"code\": 403,
+    \"message\": \"Permission 'cloudmessaging.messages.create' denied on resource '//cloudresourcemanager.googleapis.com/projects/sim-skripsi' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkwYi1kM2I5LTcxNjAtYjMwOC1jOWVlY2EyOGM2NTASFHByb2plY3RzL3NpbS1za3JpcHNp .\",
+    \"status\": \"PERMISSION_DENIED\",
+    \"details\": [
+      {
+        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",
+        \"reason\": \"IAM_PERMISSION_DENIED\",
+        \"domain\": \"cloudresourcemanager.googleapis.com\",
+        \"metadata\": {
+          \"resource\": \"projects/sim-skripsi\",
+          \"troubleshooter_url\": \"https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkwYi1kM2I5LTcxNjAtYjMwOC1jOWVlY2EyOGM2NTASFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"error_info_id\": \"CiQwMTllZTkwYi1kM2I5LTcxNjAtYjMwOC1jOWVlY2EyOGM2NTASFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"permission\": \"cloudmessaging.messages.create\"
+        }
+      }
+    ]
+  }
+}
+"} 
+[2026-06-21 16:18:47] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Chat baru SIM Skripsi
+MIME-Version: 1.0
+Date: Sun, 21 Jun 2026 16:18:47 +0900
+Message-ID: <f82e3cb45ca3297fb936fa8240b99156@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim pesan chat baru:
+
+cek  
+[2026-06-21 16:19:13] local.INFO: FCM RESPONSE {"status":403,"body":"{
+  \"error\": {
+    \"code\": 403,
+    \"message\": \"Permission 'cloudmessaging.messages.create' denied on resource '//cloudresourcemanager.googleapis.com/projects/sim-skripsi' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkwYy0zNzQ5LTc4MTUtOTcxYS01MzNiYzc4NjUxZmQSFHByb2plY3RzL3NpbS1za3JpcHNp .\",
+    \"status\": \"PERMISSION_DENIED\",
+    \"details\": [
+      {
+        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",
+        \"reason\": \"IAM_PERMISSION_DENIED\",
+        \"domain\": \"cloudresourcemanager.googleapis.com\",
+        \"metadata\": {
+          \"troubleshooter_url\": \"https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkwYy0zNzQ5LTc4MTUtOTcxYS01MzNiYzc4NjUxZmQSFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"error_info_id\": \"CiQwMTllZTkwYy0zNzQ5LTc4MTUtOTcxYS01MzNiYzc4NjUxZmQSFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"permission\": \"cloudmessaging.messages.create\",
+          \"resource\": \"projects/sim-skripsi\"
+        }
+      }
+    ]
+  }
+}
+"} 
+[2026-06-21 16:19:13] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Chat baru SIM Skripsi
+MIME-Version: 1.0
+Date: Sun, 21 Jun 2026 16:19:13 +0900
+Message-ID: <8d9ac8cfbf4e0cb5dd3959add4f15582@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim pesan chat baru:
+
+cek  
+[2026-06-21 16:20:00] local.INFO: FCM RESPONSE {"status":403,"body":"{
+  \"error\": {
+    \"code\": 403,
+    \"message\": \"Permission 'cloudmessaging.messages.create' denied on resource '//cloudresourcemanager.googleapis.com/projects/sim-skripsi' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkwYy1mMGExLTdmNmEtYmUyZS0yNThlZDQ2ODJiMDESFHByb2plY3RzL3NpbS1za3JpcHNp .\",
+    \"status\": \"PERMISSION_DENIED\",
+    \"details\": [
+      {
+        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",
+        \"reason\": \"IAM_PERMISSION_DENIED\",
+        \"domain\": \"cloudresourcemanager.googleapis.com\",
+        \"metadata\": {
+          \"error_info_id\": \"CiQwMTllZTkwYy1mMGExLTdmNmEtYmUyZS0yNThlZDQ2ODJiMDESFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"troubleshooter_url\": \"https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkwYy1mMGExLTdmNmEtYmUyZS0yNThlZDQ2ODJiMDESFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"permission\": \"cloudmessaging.messages.create\",
+          \"resource\": \"projects/sim-skripsi\"
+        }
+      }
+    ]
+  }
+}
+"} 
+[2026-06-21 16:20:00] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Chat baru SIM Skripsi
+MIME-Version: 1.0
+Date: Sun, 21 Jun 2026 16:20:00 +0900
+Message-ID: <f10e05b073b4b40f79c72509b7aeb336@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim pesan chat baru:
+
+Izin pak  
+[2026-06-21 16:20:51] local.INFO: FCM RESPONSE {"status":403,"body":"{
+  \"error\": {
+    \"code\": 403,
+    \"message\": \"Permission 'cloudmessaging.messages.create' denied on resource '//cloudresourcemanager.googleapis.com/projects/sim-skripsi' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkwZC1iNjUwLTcyNWYtYjIwYS01OTc1Y2QzODlmM2YSFHByb2plY3RzL3NpbS1za3JpcHNp .\",
+    \"status\": \"PERMISSION_DENIED\",
+    \"details\": [
+      {
+        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",
+        \"reason\": \"IAM_PERMISSION_DENIED\",
+        \"domain\": \"cloudresourcemanager.googleapis.com\",
+        \"metadata\": {
+          \"troubleshooter_url\": \"https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkwZC1iNjUwLTcyNWYtYjIwYS01OTc1Y2QzODlmM2YSFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"error_info_id\": \"CiQwMTllZTkwZC1iNjUwLTcyNWYtYjIwYS01OTc1Y2QzODlmM2YSFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"permission\": \"cloudmessaging.messages.create\",
+          \"resource\": \"projects/sim-skripsi\"
+        }
+      }
+    ]
+  }
+}
+"} 
+[2026-06-21 16:20:51] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Chat baru SIM Skripsi
+MIME-Version: 1.0
+Date: Sun, 21 Jun 2026 16:20:51 +0900
+Message-ID: <aab20f097765af53fb8c5557cd7f8830@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim pesan chat baru:
+
+cek  
+[2026-06-21 16:21:01] local.INFO: FCM RESPONSE {"status":403,"body":"{
+  \"error\": {
+    \"code\": 403,
+    \"message\": \"Permission 'cloudmessaging.messages.create' denied on resource '//cloudresourcemanager.googleapis.com/projects/sim-skripsi' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkwZC1kZDdmLTc3ZGQtYTZlZi0zOTA2NjMzOTMyNjQSFHByb2plY3RzL3NpbS1za3JpcHNp .\",
+    \"status\": \"PERMISSION_DENIED\",
+    \"details\": [
+      {
+        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",
+        \"reason\": \"IAM_PERMISSION_DENIED\",
+        \"domain\": \"cloudresourcemanager.googleapis.com\",
+        \"metadata\": {
+          \"troubleshooter_url\": \"https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkwZC1kZDdmLTc3ZGQtYTZlZi0zOTA2NjMzOTMyNjQSFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"error_info_id\": \"CiQwMTllZTkwZC1kZDdmLTc3ZGQtYTZlZi0zOTA2NjMzOTMyNjQSFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"permission\": \"cloudmessaging.messages.create\",
+          \"resource\": \"projects/sim-skripsi\"
+        }
+      }
+    ]
+  }
+}
+"} 
+[2026-06-21 16:21:01] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Chat baru SIM Skripsi
+MIME-Version: 1.0
+Date: Sun, 21 Jun 2026 16:21:01 +0900
+Message-ID: <447f40a4fbf400dbec6644bb3f2817c2@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim pesan chat baru:
+
+cek  
+[2026-06-21 16:22:56] local.INFO: FCM RESPONSE {"status":403,"body":"{
+  \"error\": {
+    \"code\": 403,
+    \"message\": \"Permission 'cloudmessaging.messages.create' denied on resource '//cloudresourcemanager.googleapis.com/projects/sim-skripsi' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkwZi05ZDhlLTdhZDUtOTI0MC1jZmMzMWJjNTE4OTUSFHByb2plY3RzL3NpbS1za3JpcHNp .\",
+    \"status\": \"PERMISSION_DENIED\",
+    \"details\": [
+      {
+        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",
+        \"reason\": \"IAM_PERMISSION_DENIED\",
+        \"domain\": \"cloudresourcemanager.googleapis.com\",
+        \"metadata\": {
+          \"troubleshooter_url\": \"https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkwZi05ZDhlLTdhZDUtOTI0MC1jZmMzMWJjNTE4OTUSFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"error_info_id\": \"CiQwMTllZTkwZi05ZDhlLTdhZDUtOTI0MC1jZmMzMWJjNTE4OTUSFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"permission\": \"cloudmessaging.messages.create\",
+          \"resource\": \"projects/sim-skripsi\"
+        }
+      }
+    ]
+  }
+}
+"} 
+[2026-06-21 16:22:56] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Chat baru SIM Skripsi
+MIME-Version: 1.0
+Date: Sun, 21 Jun 2026 16:22:56 +0900
+Message-ID: <0f6b7a5317e96856d4e082f7c6715674@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim pesan chat baru:
+
+tes  
+[2026-06-21 16:24:11] local.INFO: FCM RESPONSE {"status":403,"body":"{
+  \"error\": {
+    \"code\": 403,
+    \"message\": \"Permission 'cloudmessaging.messages.create' denied on resource '//cloudresourcemanager.googleapis.com/projects/sim-skripsi' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkxMC1jMzE0LTdmODMtYjMwOC0yMjIxYzkxMDgwY2ESFHByb2plY3RzL3NpbS1za3JpcHNp .\",
+    \"status\": \"PERMISSION_DENIED\",
+    \"details\": [
+      {
+        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",
+        \"reason\": \"IAM_PERMISSION_DENIED\",
+        \"domain\": \"cloudresourcemanager.googleapis.com\",
+        \"metadata\": {
+          \"troubleshooter_url\": \"https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkxMC1jMzE0LTdmODMtYjMwOC0yMjIxYzkxMDgwY2ESFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"resource\": \"projects/sim-skripsi\",
+          \"error_info_id\": \"CiQwMTllZTkxMC1jMzE0LTdmODMtYjMwOC0yMjIxYzkxMDgwY2ESFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"permission\": \"cloudmessaging.messages.create\"
+        }
+      }
+    ]
+  }
+}
+"} 
+[2026-06-21 16:24:11] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Chat baru SIM Skripsi
+MIME-Version: 1.0
+Date: Sun, 21 Jun 2026 16:24:11 +0900
+Message-ID: <0d043a07e35cbc2c21f6ed262e083a89@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim pesan chat baru:
+
+Tes FCM  
+[2026-06-21 16:28:11] local.INFO: FCM RESPONSE {"status":403,"body":"{
+  \"error\": {
+    \"code\": 403,
+    \"message\": \"Permission 'cloudmessaging.messages.create' denied on resource '//cloudresourcemanager.googleapis.com/projects/sim-skripsi' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkxNC02ZTE0LTc2MzAtODBkZi04Y2NkYzg1OTBkZGQSFHByb2plY3RzL3NpbS1za3JpcHNp .\",
+    \"status\": \"PERMISSION_DENIED\",
+    \"details\": [
+      {
+        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",
+        \"reason\": \"IAM_PERMISSION_DENIED\",
+        \"domain\": \"cloudresourcemanager.googleapis.com\",
+        \"metadata\": {
+          \"troubleshooter_url\": \"https://console.cloud.google.com/iam-admin/troubleshooter;errorId=CiQwMTllZTkxNC02ZTE0LTc2MzAtODBkZi04Y2NkYzg1OTBkZGQSFHByb2plY3RzL3NpbS1za3JpcHNp\",
+          \"resource\": \"projects/sim-skripsi\",
+          \"permission\": \"cloudmessaging.messages.create\",
+          \"error_info_id\": \"CiQwMTllZTkxNC02ZTE0LTc2MzAtODBkZi04Y2NkYzg1OTBkZGQSFHByb2plY3RzL3NpbS1za3JpcHNp\"
+        }
+      }
+    ]
+  }
+}
+"} 
+[2026-06-21 16:28:11] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Chat baru SIM Skripsi
+MIME-Version: 1.0
+Date: Sun, 21 Jun 2026 16:28:11 +0900
+Message-ID: <f699e868039fd906576e495c3f76665f@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim pesan chat baru:
+
+tes  
+[2026-06-21 16:28:50] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/b4c0ae31-b6c7-440c-acf3-1e68c167722f\"
+}
+"} 
+[2026-06-21 16:28:50] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Chat baru SIM Skripsi
+MIME-Version: 1.0
+Date: Sun, 21 Jun 2026 16:28:50 +0900
+Message-ID: <d8b0978d25de9b795a09bef562b4deac@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim pesan chat baru:
+
+tes  
+[2026-06-21 16:29:53] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/c8acc033-481c-4651-b5bf-d68d955b0b19\"
+}
+"} 
+[2026-06-21 16:29:53] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Chat baru SIM Skripsi
+MIME-Version: 1.0
+Date: Sun, 21 Jun 2026 16:29:53 +0900
+Message-ID: <5e42f2460c41c98ddad1dcc793ec998e@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim pesan chat baru:
+
+tes  
+[2026-06-21 16:31:08] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/1fb0585d-2d71-4880-b164-7fe66004fbda\"
+}
+"} 
+[2026-06-21 16:31:08] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Chat baru SIM Skripsi
+MIME-Version: 1.0
+Date: Sun, 21 Jun 2026 16:31:08 +0900
+Message-ID: <340e562857210363d29c96ffcfc0900c@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim pesan chat baru:
+
+hallo  
