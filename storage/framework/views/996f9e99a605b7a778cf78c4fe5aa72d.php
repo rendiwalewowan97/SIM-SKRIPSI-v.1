@@ -164,6 +164,35 @@
                             </a>
                         <?php endif; ?>
 
+                        
+                        <?php if(
+                            auth()->user()->isDosen() &&
+                            auth()->id() == $g->supervisor_id &&
+                            $g->status === 'selesai'
+                        ): ?>
+                            <form method="POST"
+                                action="<?php echo e(route('guidances.destroy', $g)); ?>"
+                                onsubmit="return confirm('Yakin ingin menghapus bimbingan yang sudah selesai ini?')">
+                                <?php echo csrf_field(); ?>
+                                <?php echo method_field('DELETE'); ?>
+
+                                <button type="submit"
+                                        class="text-red-700 hover:text-red-900"
+                                        title="Hapus">
+                                    <svg class="w-5 h-5"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke="currentColor"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M6 7h12m-9 4v6m6-6v6M9 7V4h6v3m-9 0 1 13h10l1-13"/>
+                                    </svg>
+                                </button>
+                            </form>
+                        <?php endif; ?>
+
                     </div>
                 </td>
             </tr>

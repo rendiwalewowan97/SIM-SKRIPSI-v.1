@@ -215,15 +215,20 @@ class GuidanceSessionController extends Controller
 
     public function destroy(GuidanceSession $guidance)
     {
-        abort_unless(auth()->user()->isJurusan() || ($guidance->student_id === auth()->id() && $guidance->status === 'menunggu'), 403);
-        $guidance->delete();
-        return redirect()->route('guidances.index')->with('success','Data bimbingan dihapus.');
-    }
-
-    private function authorizeView(GuidanceSession $guidance): void
-    {
         $u = auth()->user();
-        abort_unless($u->isJurusan() || $guidance->student_id === $u->id || $guidance->supervisor_id === $u->id, 403);
+
+        abort_unless(
+            $u->isJurusan()
+            || ($guidance->student_id === $u->id && $guidance->status === 'selesai')
+            || ($guidance->supervisor_id === $u->id && $guidance->status === 'selesai'),
+            403
+        );
+
+        $guidance->delete();
+
+        return redirect()
+            ->route('guidances.index')
+            ->with('success', 'Data bimbingan dihapus.');
     }
 
 }

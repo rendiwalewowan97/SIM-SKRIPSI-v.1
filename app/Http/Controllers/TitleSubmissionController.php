@@ -44,8 +44,13 @@ class TitleSubmissionController extends Controller
 
         $data = $request->validate([
             'title' => 'required|string|max:255',
-            'sks' => 'required|integer|min:0|max:200',
+            'sks' => 'required|integer|min:112|max:200',
             'background' => 'nullable|string',
+        ], [
+            'sks.required' => 'Jumlah SKS wajib diisi.',
+            'sks.integer' => 'Jumlah SKS harus berupa angka.',
+            'sks.min' => 'Mahasiswa harus telah lulus minimal 112 SKS untuk mengajukan judul skripsi.',
+            'sks.max' => 'Jumlah SKS tidak boleh lebih dari 200.',
         ]);
 
         $title = TitleSubmission::create($data + [
@@ -112,22 +117,40 @@ class TitleSubmissionController extends Controller
         $u = auth()->user();
 
         if ($u->isMahasiswa()) {
-            abort_unless($title->student_id === $u->id && in_array($title->status, ['diajukan','revisi']), 403);
+
+            abort_unless(
+                $title->student_id === $u->id &&
+                in_array($title->status, ['diajukan', 'revisi']),
+                403
+            );
 
             $data = $request->validate([
                 'title' => 'required|string|max:255',
-                'sks' => 'required|integer|min:0|max:200',
+                'sks' => 'required|integer|min:112|max:200',
                 'background' => 'nullable|string',
+            ], [
+                'sks.required' => 'Jumlah SKS wajib diisi.',
+                'sks.integer' => 'Jumlah SKS harus berupa angka.',
+                'sks.min' => 'Mahasiswa harus telah lulus minimal 112 SKS untuk mengajukan judul skripsi.',
+                'sks.max' => 'Jumlah SKS tidak boleh lebih dari 200.',
             ]);
 
-            $title->update($data + ['status' => 'diajukan']);
+            $title->update($data + [
+                'status' => 'diajukan'
+            ]);
 
-            return redirect()->route('titles.index')->with('success', 'Pengajuan judul diperbarui dan dikirim ulang.');
+            return redirect()
+                ->route('titles.index')
+                ->with('success', 'Pengajuan judul diperbarui dan dikirim ulang.');
         }
 
         abort_unless($u->isJurusan(), 403);
+
         return $this->review($request, $title);
+    
+
     }
+
 
     public function vote(Request $request, TitleSubmission $title)
     {

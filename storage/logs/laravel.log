@@ -16091,3 +16091,321 @@ Content-Transfer-Encoding: quoted-printable
 Vitra Mahasiswa mengirim pesan chat baru:
 
 hallo  
+[2026-06-22 17:39:49] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/de3cc8fa-48f9-4fef-9dfb-d2431d7969ac\"
+}
+"} 
+[2026-06-22 17:42:56] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/9dbd814a-6dfe-4584-b70e-56ab99ac8459\"
+}
+"} 
+[2026-06-22 17:46:14] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/e0c428e7-78da-4495-ab13-1890ef8de2b3\"
+}
+"} 
+[2026-06-22 17:46:20] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/d28788ce-924c-4f1c-8e26-fb8bf65038e8\"
+}
+"} 
+[2026-06-22 17:47:03] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/b47ec2f8-c6d1-4f19-a061-af09b7b3e453\"
+}
+"} 
+[2026-06-22 17:48:30] local.ERROR: cURL error 6: Could not resolve host: oauth2.googleapis.com (see https://curl.se/libcurl/c/libcurl-errors.html) for https://oauth2.googleapis.com/token {"userId":3,"exception":"[object] (GuzzleHttp\\Exception\\ConnectException(code: 0): cURL error 6: Could not resolve host: oauth2.googleapis.com (see https://curl.se/libcurl/c/libcurl-errors.html) for https://oauth2.googleapis.com/token at D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php:624)
+[stacktrace]
+#0 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php(565): GuzzleHttp/Handler/CurlFactory::createRejection(Object(GuzzleHttp/Handler/EasyHandle), Array)
+#1 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php(517): GuzzleHttp/Handler/CurlFactory::finishError(Object(GuzzleHttp/Handler/CurlHandler), Object(GuzzleHttp/Handler/EasyHandle), Object(GuzzleHttp/Handler/CurlFactory))
+#2 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Handler/CurlHandler.php(70): GuzzleHttp/Handler/CurlFactory::finish(Object(GuzzleHttp/Handler/CurlHandler), Object(GuzzleHttp/Handler/EasyHandle), Object(GuzzleHttp/Handler/CurlFactory))
+#3 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Handler/Proxy.php(28): GuzzleHttp/Handler/CurlHandler->__invoke(Object(GuzzleHttp/Psr7/Request), Array)
+#4 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Handler/Proxy.php(48): GuzzleHttp/Handler/Proxy::GuzzleHttp/Handler/{closure}(Object(GuzzleHttp/Psr7/Request), Array)
+#5 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/PrepareBodyMiddleware.php(64): GuzzleHttp/Handler/Proxy::GuzzleHttp/Handler/{closure}(Object(GuzzleHttp/Psr7/Request), Array)
+#6 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Middleware.php(31): GuzzleHttp/PrepareBodyMiddleware->__invoke(Object(GuzzleHttp/Psr7/Request), Array)
+#7 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/RedirectMiddleware.php(71): GuzzleHttp/Middleware::GuzzleHttp/{closure}(Object(GuzzleHttp/Psr7/Request), Array)
+#8 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Middleware.php(66): GuzzleHttp/RedirectMiddleware->__invoke(Object(GuzzleHttp/Psr7/Request), Array)
+#9 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/HandlerStack.php(75): GuzzleHttp/Middleware::GuzzleHttp/{closure}(Object(GuzzleHttp/Psr7/Request), Array)
+#10 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Client.php(824): GuzzleHttp/HandlerStack->__invoke(Object(GuzzleHttp/Psr7/Request), Array)
+#11 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Client.php(122): GuzzleHttp/Client->transfer(Object(GuzzleHttp/Psr7/Request), Array)
+#12 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Client.php(140): GuzzleHttp/Client->sendAsync(Object(GuzzleHttp/Psr7/Request), Array)
+#13 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/google/auth/src/HttpHandler/Guzzle6HttpHandler.php(65): GuzzleHttp/Client->send(Object(GuzzleHttp/Psr7/Request), Array)
+#14 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/google/auth/src/OAuth2.php(678): Google/Auth/HttpHandler/Guzzle6HttpHandler->__invoke(Object(GuzzleHttp/Psr7/Request))
+#15 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/google/auth/src/Credentials/ServiceAccountCredentials.php(255): Google/Auth/OAuth2->fetchAuthToken(Object(Google/Auth/HttpHandler/Guzzle7HttpHandler), Array)
+#16 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/google/auth/src/FetchAuthTokenCache.php(89): Google/Auth/Credentials/ServiceAccountCredentials->fetchAuthToken(Object(Google/Auth/HttpHandler/Guzzle7HttpHandler))
+#17 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/google/apiclient/src/Client.php(349): Google/Auth/FetchAuthTokenCache->fetchAuthToken(Object(Google/Auth/HttpHandler/Guzzle7HttpHandler))
+#18 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/app/Services/FcmService.php(33): Google/Client->fetchAccessTokenWithAssertion()
+#19 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/app/Services/FcmService.php(21): App/Services/FcmService->sendToToken('dnRFzaE-TNXzwU5...', 'Pengajuan Judul...', 'Vitra Mahasiswa...', 'http://localhos...')
+#20 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/app/Http/Controllers/TitleSubmissionController.php(66): App/Services/FcmService->sendToUser(Object(App/Models/User), 'Pengajuan Judul...', 'Vitra Mahasiswa...', 'http://localhos...')
+#21 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App/Http/Controllers/TitleSubmissionController->store(Object(Illuminate/Http/Request))
+#22 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(265): Illuminate/Routing/ControllerDispatcher->dispatch(Object(Illuminate/Routing/Route), Object(App/Http/Controllers/TitleSubmissionController), 'store')
+#23 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(211): Illuminate/Routing/Route->runController()
+#24 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate/Routing/Route->run()
+#25 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#26 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#27 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#28 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(63): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#29 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Auth/Middleware/Authenticate->handle(Object(Illuminate/Http/Request), Object(Closure))
+#30 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(87): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#31 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/VerifyCsrfToken->handle(Object(Illuminate/Http/Request), Object(Closure))
+#32 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(48): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#33 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/View/Middleware/ShareErrorsFromSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#34 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(120): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#35 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(63): Illuminate/Session/Middleware/StartSession->handleStatefulRequest(Object(Illuminate/Http/Request), Object(Illuminate/Session/Store), Object(Closure))
+#36 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Session/Middleware/StartSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#37 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(36): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#38 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse->handle(Object(Illuminate/Http/Request), Object(Closure))
+#39 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(74): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#40 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Cookie/Middleware/EncryptCookies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#41 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#42 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#43 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#44 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#45 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#46 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#47 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#48 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#49 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#50 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#51 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#52 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#53 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#54 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#55 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#56 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#57 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#58 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(61): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#59 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#60 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#61 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#62 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#63 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks->handle(Object(Illuminate/Http/Request), Object(Closure))
+#64 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(26): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#65 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePathEncoding->handle(Object(Illuminate/Http/Request), Object(Closure))
+#66 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#67 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#68 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#69 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#70 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/public/index.php(17): Illuminate/Foundation/Application->handleRequest(Object(Illuminate/Http/Request))
+#71 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('D://SIM-SKRIPSI-...')
+#72 {main}
+"} 
+[2026-06-22 17:48:47] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/f67f7e14-cdbd-4768-b41f-b7d04dec35e1\"
+}
+"} 
+[2026-06-22 17:49:32] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/2dca28f7-5923-4e75-995d-e46e2603761b\"
+}
+"} 
+[2026-06-22 18:03:00] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/e5365f1b-c8ce-4382-8d2c-d578e4585030\"
+}
+"} 
+[2026-06-22 18:03:19] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/a01db2ca-9493-4ddb-a832-79e3e002e79e\"
+}
+"} 
+[2026-06-22 18:03:30] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/1043e1e7-ec8a-454b-8eda-e869fef21fd4\"
+}
+"} 
+[2026-06-22 18:03:42] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/f90cad44-4f77-4bab-8ae7-c8e24283144a\"
+}
+"} 
+[2026-06-22 18:03:52] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/9dbf3d71-f020-48b2-b98f-206857019075\"
+}
+"} 
+[2026-06-22 18:09:45] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/e392f900-ec2b-4e32-bc6b-d6888dfab30e\"
+}
+"} 
+[2026-06-22 18:10:21] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/a33cefd1-460e-4e8b-89b3-cf1a54975244\"
+}
+"} 
+[2026-06-22 18:10:32] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/e0f3ef8d-5d0f-4e90-ba4b-6a0a9e075cb7\"
+}
+"} 
+[2026-06-22 18:10:39] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/160e6b9c-edeb-4ccc-8a5d-9b5c1e7574ca\"
+}
+"} 
+[2026-06-22 18:11:10] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Bimbingan baru SIM Skripsi
+MIME-Version: 1.0
+Date: Mon, 22 Jun 2026 18:11:10 +0900
+Message-ID: <50c0a627d42eef0dede1acd95f24f650@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim bimbingan baru.  
+[2026-06-22 18:11:57] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/37450516-f9fb-4969-937b-31009ea41842\"
+}
+"} 
+[2026-06-22 18:12:05] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/3bf1ac4d-0b48-4e74-b399-86e027b55071\"
+}
+"} 
+[2026-06-22 18:12:15] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/2ea3d608-ab47-4127-afe2-bd00dc43de69\"
+}
+"} 
+[2026-06-22 18:14:34] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/688291c6-520e-41f2-9591-19c679d4e511\"
+}
+"} 
+[2026-06-22 18:14:58] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/f99918a4-cadb-4727-9df4-0fd512e8c076\"
+}
+"} 
+[2026-06-22 18:22:45] local.ERROR: cURL error 6: Could not resolve host: oauth2.googleapis.com (see https://curl.se/libcurl/c/libcurl-errors.html) for https://oauth2.googleapis.com/token {"userId":3,"exception":"[object] (GuzzleHttp\\Exception\\ConnectException(code: 0): cURL error 6: Could not resolve host: oauth2.googleapis.com (see https://curl.se/libcurl/c/libcurl-errors.html) for https://oauth2.googleapis.com/token at D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php:624)
+[stacktrace]
+#0 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php(565): GuzzleHttp/Handler/CurlFactory::createRejection(Object(GuzzleHttp/Handler/EasyHandle), Array)
+#1 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php(517): GuzzleHttp/Handler/CurlFactory::finishError(Object(GuzzleHttp/Handler/CurlHandler), Object(GuzzleHttp/Handler/EasyHandle), Object(GuzzleHttp/Handler/CurlFactory))
+#2 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Handler/CurlHandler.php(70): GuzzleHttp/Handler/CurlFactory::finish(Object(GuzzleHttp/Handler/CurlHandler), Object(GuzzleHttp/Handler/EasyHandle), Object(GuzzleHttp/Handler/CurlFactory))
+#3 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Handler/Proxy.php(28): GuzzleHttp/Handler/CurlHandler->__invoke(Object(GuzzleHttp/Psr7/Request), Array)
+#4 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Handler/Proxy.php(48): GuzzleHttp/Handler/Proxy::GuzzleHttp/Handler/{closure}(Object(GuzzleHttp/Psr7/Request), Array)
+#5 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/PrepareBodyMiddleware.php(64): GuzzleHttp/Handler/Proxy::GuzzleHttp/Handler/{closure}(Object(GuzzleHttp/Psr7/Request), Array)
+#6 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Middleware.php(31): GuzzleHttp/PrepareBodyMiddleware->__invoke(Object(GuzzleHttp/Psr7/Request), Array)
+#7 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/RedirectMiddleware.php(71): GuzzleHttp/Middleware::GuzzleHttp/{closure}(Object(GuzzleHttp/Psr7/Request), Array)
+#8 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Middleware.php(66): GuzzleHttp/RedirectMiddleware->__invoke(Object(GuzzleHttp/Psr7/Request), Array)
+#9 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/HandlerStack.php(75): GuzzleHttp/Middleware::GuzzleHttp/{closure}(Object(GuzzleHttp/Psr7/Request), Array)
+#10 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Client.php(824): GuzzleHttp/HandlerStack->__invoke(Object(GuzzleHttp/Psr7/Request), Array)
+#11 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Client.php(122): GuzzleHttp/Client->transfer(Object(GuzzleHttp/Psr7/Request), Array)
+#12 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/guzzlehttp/guzzle/src/Client.php(140): GuzzleHttp/Client->sendAsync(Object(GuzzleHttp/Psr7/Request), Array)
+#13 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/google/auth/src/HttpHandler/Guzzle6HttpHandler.php(65): GuzzleHttp/Client->send(Object(GuzzleHttp/Psr7/Request), Array)
+#14 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/google/auth/src/OAuth2.php(678): Google/Auth/HttpHandler/Guzzle6HttpHandler->__invoke(Object(GuzzleHttp/Psr7/Request))
+#15 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/google/auth/src/Credentials/ServiceAccountCredentials.php(255): Google/Auth/OAuth2->fetchAuthToken(Object(Google/Auth/HttpHandler/Guzzle7HttpHandler), Array)
+#16 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/google/auth/src/FetchAuthTokenCache.php(89): Google/Auth/Credentials/ServiceAccountCredentials->fetchAuthToken(Object(Google/Auth/HttpHandler/Guzzle7HttpHandler))
+#17 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/google/apiclient/src/Client.php(349): Google/Auth/FetchAuthTokenCache->fetchAuthToken(Object(Google/Auth/HttpHandler/Guzzle7HttpHandler))
+#18 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/app/Services/FcmService.php(33): Google/Client->fetchAccessTokenWithAssertion()
+#19 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/app/Services/FcmService.php(21): App/Services/FcmService->sendToToken('dnRFzaE-TNXzwU5...', 'Bimbingan Baru', 'Vitra Mahasiswa...', 'http://localhos...')
+#20 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/app/Http/Controllers/GuidanceSessionController.php(92): App/Services/FcmService->sendToUser(Object(App/Models/User), 'Bimbingan Baru', 'Vitra Mahasiswa...', 'http://localhos...')
+#21 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App/Http/Controllers/GuidanceSessionController->store(Object(Illuminate/Http/Request))
+#22 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(265): Illuminate/Routing/ControllerDispatcher->dispatch(Object(Illuminate/Routing/Route), Object(App/Http/Controllers/GuidanceSessionController), 'store')
+#23 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Route.php(211): Illuminate/Routing/Route->runController()
+#24 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate/Routing/Route->run()
+#25 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#26 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#27 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#28 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(63): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#29 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Auth/Middleware/Authenticate->handle(Object(Illuminate/Http/Request), Object(Closure))
+#30 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(87): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#31 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/VerifyCsrfToken->handle(Object(Illuminate/Http/Request), Object(Closure))
+#32 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(48): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#33 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/View/Middleware/ShareErrorsFromSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#34 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(120): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#35 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(63): Illuminate/Session/Middleware/StartSession->handleStatefulRequest(Object(Illuminate/Http/Request), Object(Illuminate/Session/Store), Object(Closure))
+#36 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Session/Middleware/StartSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#37 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(36): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#38 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse->handle(Object(Illuminate/Http/Request), Object(Closure))
+#39 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(74): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#40 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Cookie/Middleware/EncryptCookies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#41 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#42 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#43 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#44 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#45 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#46 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#47 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#48 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#49 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#50 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#51 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#52 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#53 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#54 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#55 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#56 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#57 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#58 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(61): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#59 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#60 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#61 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#62 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#63 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks->handle(Object(Illuminate/Http/Request), Object(Closure))
+#64 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(26): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#65 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePathEncoding->handle(Object(Illuminate/Http/Request), Object(Closure))
+#66 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#67 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#68 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#69 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#70 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/public/index.php(17): Illuminate/Foundation/Application->handleRequest(Object(Illuminate/Http/Request))
+#71 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('D://SIM-SKRIPSI-...')
+#72 {main}
+"} 
+[2026-06-22 18:23:04] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/4027e482-5c05-4c25-8615-9c2fce42936e\"
+}
+"} 
+[2026-06-22 18:23:04] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Bimbingan baru SIM Skripsi
+MIME-Version: 1.0
+Date: Mon, 22 Jun 2026 18:23:04 +0900
+Message-ID: <27040b5d50b0814249a959e473e5a829@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim bimbingan baru.  
+[2026-06-22 18:23:21] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/057e10aa-74e3-4ba7-830f-644f1b1aae10\"
+}
+"} 
+[2026-06-22 18:23:29] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/f205db24-bdb0-40b0-a7de-74b3b65deb37\"
+}
+"} 
+[2026-06-22 18:23:57] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/a58c0c83-1198-4247-a729-537a3aeed26d\"
+}
+"} 
+[2026-06-22 18:23:57] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Chat baru SIM Skripsi
+MIME-Version: 1.0
+Date: Mon, 22 Jun 2026 18:23:57 +0900
+Message-ID: <ffc5d6ddd7bc8b2d2ed93ab37736ece1@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim pesan chat baru:
+
+Izin pak  
+[2026-06-22 18:24:02] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/cac7ac0e-2b5e-4c37-b343-8d980c193e56\"
+}
+"} 
+[2026-06-22 18:24:02] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Chat baru SIM Skripsi
+MIME-Version: 1.0
+Date: Mon, 22 Jun 2026 18:24:02 +0900
+Message-ID: <d8e158b6b6e36a099aa1e76fd1489ecf@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim pesan chat baru:
+
+Izin pak  
+[2026-06-22 18:24:21] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/aa5bb601-1cd4-4f2f-9c05-2692bf13c57d\"
+}
+"} 
+[2026-06-22 18:25:57] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/54c3522d-9e36-4214-b829-4290fe8faf84\"
+}
+"} 
+[2026-06-22 18:25:57] local.DEBUG: From: Example <hello@example.com>
+To: izak@unmus.com
+Subject: Bimbingan baru SIM Skripsi
+MIME-Version: 1.0
+Date: Mon, 22 Jun 2026 18:25:57 +0900
+Message-ID: <cab4f2715236ddcf4bad4e68f8d55e6a@example.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Vitra Mahasiswa mengirim bimbingan baru.  

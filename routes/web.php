@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/guidances/{guidance}/file', [GuidanceSessionController::class, 'file'])->name('guidances.file');
     Route::resource('guidances', GuidanceSessionController::class);
     Route::post('/guidances/{guidance}/review', [GuidanceSessionController::class, 'review'])->name('guidances.review');
+    Route::delete('/guidances/{guidance}', [GuidanceSessionController::class, 'destroy'])->name('guidances.destroy');
 
     Route::get('/exams/{exam}/document', [ExamRegistrationController::class, 'document'])->name('exams.document');
     Route::resource('exams', ExamRegistrationController::class);
@@ -70,8 +71,8 @@ Route::middleware('auth')->group(function () {
     Route::middleware('role:jurusan')->group(function () {
         Route::resource('users', UserController::class)->except(['show']);
     });
-
-
+    Route::middleware('auth')->post('/fcm-token', [FcmTokenController::class, 'store'])
+    ->name('fcm.token.store');
 
     // chat
     Route::get('/chats', [ChatController::class, 'index'])->name('chats.index');
@@ -79,8 +80,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/chats/{user}/fetch', [ChatController::class, 'fetch'])->name('chats.fetch');
     Route::post('/chats/{user}', [ChatController::class, 'store'])->name('chats.store');
 
-
-    Route::middleware('auth')->post('/fcm-token', [FcmTokenController::class, 'store'])
-    ->name('fcm.token.store');
     
 });
