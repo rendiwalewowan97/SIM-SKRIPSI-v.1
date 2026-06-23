@@ -12,67 +12,31 @@
 
     <div class="flex min-h-screen items-center justify-center px-4 py-8">
 
-        <div class="grid w-full max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl md:grid-cols-2">
+        <div
+            class="w-full max-w-xl rounded-3xl bg-white/95 p-8 shadow-[0_25px_80px_rgba(0,0,0,0.18)] backdrop-blur-md sm:p-10">
 
-            {{-- Bagian Kiri --}}
-            <div class="hidden bg-[#81C1C3] p-10 text-white md:flex md:flex-col md:justify-between">
+            {{-- Logo --}}
+            <div class="mb-8 text-center">
 
-                <div>
-
-                    <div class="mb-6 flex items-center gap-4">
-
-                        <img src="{{ asset('images/logo-unmus.png') }}"
-                             alt="Logo UNMUS"
-                             class="h-16 w-16 rounded-xl bg-white/20 p-2">
-
-                        <div>
-                            <h1 class="text-2xl font-bold">
-                                SIM Skripsi & Bimbingan
-                            </h1>
-
-                            <p class="text-sm text-white/80">
-                                Universitas Musamus
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <p class="text-white/90">
-                        Sistem informasi untuk membantu proses pengajuan judul,
-                        bimbingan proposal, seminar proposal, bimbingan skripsi,
-                        sidang skripsi, monitoring progres mahasiswa, dan
-                        pengelolaan arsip skripsi secara terintegrasi.
-                    </p>
-
+                <div class="mx-auto mb-5 flex h-28 w-28 items-center justify-center rounded-3xl bg-slate-50 shadow-sm">
+                    <img src="{{ asset('images/logo-unmus.png') }}"
+                         alt="Logo UNMUS"
+                         class="h-20 w-20 object-contain">
                 </div>
 
-                <div class="mt-10 text-sm text-white/80">
-                    © {{ date('Y') }} Universitas Musamus
-                </div>
+                <h1 class="text-3xl font-bold tracking-tight text-slate-800">
+                    SIM Skripsi
+                </h1>
+
+                <p class="mt-2 text-sm text-slate-500">
+                    Universitas Musamus
+                </p>
 
             </div>
 
-            {{-- Bagian Form --}}
-            <div class="p-6 sm:p-8 md:p-10">
-
-                <div class="mb-8 text-center md:text-left">
-
-                    <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-[#DDF3F3] text-3xl md:mx-0">
-                        🔐
-                    </div>
-
-                    <h2 class="text-2xl font-bold text-slate-800">
-                        Selamat Datang
-                    </h2>
-
-                    <p class="mt-2 text-sm text-slate-500">
-                        Silakan masuk untuk melanjutkan ke sistem.
-                    </p>
-
-                </div>
-
+            {{-- Form --}}
+            <div class="border-t border-slate-100 pt-6">
                 @yield('content')
-
             </div>
 
         </div>
