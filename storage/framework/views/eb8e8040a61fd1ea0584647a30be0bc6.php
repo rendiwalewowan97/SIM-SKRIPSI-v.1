@@ -39,7 +39,7 @@
         </div>
 
         <div class="mb-4">
-            <label class="mb-2 block text-sm font-semibold text-slate-700">NIM/NIDN</label>
+            <label class="mb-2 block text-sm font-semibold text-slate-700">NPM / NIP</label>
             <input
                 name="identifier"
                 value="<?php echo e(old('identifier')); ?>"

@@ -31,7 +31,7 @@
                 <th>Email</th>
                 <th>Role</th>
                 <th>Jabatan</th>
-                <th>NIM/NIDN</th>
+                <th>NPM/NIP</th>
                 <th>Telepon</th>
                 <th>Aksi</th>
             </tr>
