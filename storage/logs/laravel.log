@@ -16612,3 +16612,96 @@ Vitra Mahasiswa mengirim bimbingan baru.
 #68 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('D://SIM-SKRIPSI-...')
 #69 {main}
 "} 
+[2026-06-25 19:44:50] local.ERROR: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: vitra_skripsi, SQL: select * from `cache` where `key` in (sim_skripsi_vitra_cache_laravel:reverb:restart)) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: vitra_skripsi, SQL: select * from `cache` where `key` in (sim_skripsi_vitra_cache_laravel:reverb:restart)) at D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connection.php:838)
+[stacktrace]
+#0 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connection.php(999): Illuminate/Database/Connection->runQueryCallback('select * from `...', Array, Object(Closure))
+#1 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connection.php(978): Illuminate/Database/Connection->tryAgainIfCausedByLostConnection(Object(Illuminate/Database/QueryException), 'select * from `...', Array, Object(Closure))
+#2 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connection.php(796): Illuminate/Database/Connection->handleQueryException(Object(Illuminate/Database/QueryException), 'select * from `...', Array, Object(Closure))
+#3 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connection.php(411): Illuminate/Database/Connection->run('select * from `...', Array, Object(Closure))
+#4 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3505): Illuminate/Database/Connection->select('select * from `...', Array, true)
+#5 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3490): Illuminate/Database/Query/Builder->runSelect()
+#6 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4080): Illuminate/Database/Query/Builder->Illuminate/Database/Query/{closure}()
+#7 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3489): Illuminate/Database/Query/Builder->onceWithColumns(Array, Object(Closure))
+#8 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Cache/DatabaseStore.php(140): Illuminate/Database/Query/Builder->get()
+#9 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Cache/DatabaseStore.php(115): Illuminate/Cache/DatabaseStore->many(Array)
+#10 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Cache/Repository.php(125): Illuminate/Cache/DatabaseStore->get('laravel:reverb:...')
+#11 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Cache/CacheManager.php(558): Illuminate/Cache/Repository->get('laravel:reverb:...')
+#12 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(363): Illuminate/Cache/CacheManager->__call('get', Array)
+#13 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/reverb/src/Servers/Reverb/Console/Commands/StartServer.php(108): Illuminate/Support/Facades/Facade::__callStatic('get', Array)
+#14 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/reverb/src/Servers/Reverb/Console/Commands/StartServer.php(73): Laravel/Reverb/Servers/Reverb/Console/Commands/StartServer->ensureRestartCommandIsRespected(Object(Laravel/Reverb/Servers/Reverb/Http/Server), Object(React/EventLoop/StreamSelectLoop), '0.0.0.0', '8080')
+#15 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Laravel/Reverb/Servers/Reverb/Console/Commands/StartServer->handle()
+#16 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate/Container/BoundMethod::Illuminate/Container/{closure}()
+#17 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(96): Illuminate/Container/Util::unwrapIfClosure(Object(Closure))
+#18 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate/Container/BoundMethod::callBoundMethod(Object(Illuminate/Foundation/Application), Array, Object(Closure))
+#19 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Container/Container.php(799): Illuminate/Container/BoundMethod::call(Object(Illuminate/Foundation/Application), Array, Array, NULL)
+#20 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate/Container/Container->call(Array)
+#21 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/symfony/console/Command/Command.php(341): Illuminate/Console/Command->execute(Object(Symfony/Component/Console/Input/ArgvInput), Object(Illuminate/Console/OutputStyle))
+#22 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony/Component/Console/Command/Command->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Illuminate/Console/OutputStyle))
+#23 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/symfony/console/Application.php(1117): Illuminate/Console/Command->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#24 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/symfony/console/Application.php(356): Symfony/Component/Console/Application->doRunCommand(Object(Laravel/Reverb/Servers/Reverb/Console/Commands/StartServer), Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#25 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/symfony/console/Application.php(195): Symfony/Component/Console/Application->doRun(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#26 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony/Component/Console/Application->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#27 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#28 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/artisan(7): Illuminate/Foundation/Application->handleCommand(Object(Symfony/Component/Console/Input/ArgvInput))
+#29 {main}
+
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it at D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:66)
+[stacktrace]
+#0 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(66): PDO->__construct('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#1 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(85): Illuminate/Database/Connectors/Connector->createPdoConnection('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#2 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(48): Illuminate/Database/Connectors/Connector->tryAgainIfCausedByLostConnection(Object(PDOException), 'mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#3 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php(24): Illuminate/Database/Connectors/Connector->createConnection('mysql:host=127....', Array, Array)
+#4 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(186): Illuminate/Database/Connectors/MySqlConnector->connect(Array)
+#5 [internal function]: Illuminate/Database/Connectors/ConnectionFactory->Illuminate/Database/Connectors/{closure}()
+#6 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1257): call_user_func(Object(Closure))
+#7 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1295): Illuminate/Database/Connection->getPdo()
+#8 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connection.php(525): Illuminate/Database/Connection->getReadPdo()
+#9 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connection.php(420): Illuminate/Database/Connection->getPdoForSelect(true)
+#10 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connection.php(827): Illuminate/Database/Connection->Illuminate/Database/{closure}('select * from `...', Array)
+#11 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connection.php(999): Illuminate/Database/Connection->runQueryCallback('select * from `...', Array, Object(Closure))
+#12 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connection.php(978): Illuminate/Database/Connection->tryAgainIfCausedByLostConnection(Object(Illuminate/Database/QueryException), 'select * from `...', Array, Object(Closure))
+#13 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connection.php(796): Illuminate/Database/Connection->handleQueryException(Object(Illuminate/Database/QueryException), 'select * from `...', Array, Object(Closure))
+#14 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Connection.php(411): Illuminate/Database/Connection->run('select * from `...', Array, Object(Closure))
+#15 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3505): Illuminate/Database/Connection->select('select * from `...', Array, true)
+#16 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3490): Illuminate/Database/Query/Builder->runSelect()
+#17 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4080): Illuminate/Database/Query/Builder->Illuminate/Database/Query/{closure}()
+#18 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3489): Illuminate/Database/Query/Builder->onceWithColumns(Array, Object(Closure))
+#19 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Cache/DatabaseStore.php(140): Illuminate/Database/Query/Builder->get()
+#20 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Cache/DatabaseStore.php(115): Illuminate/Cache/DatabaseStore->many(Array)
+#21 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Cache/Repository.php(125): Illuminate/Cache/DatabaseStore->get('laravel:reverb:...')
+#22 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Cache/CacheManager.php(558): Illuminate/Cache/Repository->get('laravel:reverb:...')
+#23 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(363): Illuminate/Cache/CacheManager->__call('get', Array)
+#24 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/reverb/src/Servers/Reverb/Console/Commands/StartServer.php(108): Illuminate/Support/Facades/Facade::__callStatic('get', Array)
+#25 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/reverb/src/Servers/Reverb/Console/Commands/StartServer.php(73): Laravel/Reverb/Servers/Reverb/Console/Commands/StartServer->ensureRestartCommandIsRespected(Object(Laravel/Reverb/Servers/Reverb/Http/Server), Object(React/EventLoop/StreamSelectLoop), '0.0.0.0', '8080')
+#26 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Laravel/Reverb/Servers/Reverb/Console/Commands/StartServer->handle()
+#27 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate/Container/BoundMethod::Illuminate/Container/{closure}()
+#28 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(96): Illuminate/Container/Util::unwrapIfClosure(Object(Closure))
+#29 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate/Container/BoundMethod::callBoundMethod(Object(Illuminate/Foundation/Application), Array, Object(Closure))
+#30 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Container/Container.php(799): Illuminate/Container/BoundMethod::call(Object(Illuminate/Foundation/Application), Array, Array, NULL)
+#31 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate/Container/Container->call(Array)
+#32 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/symfony/console/Command/Command.php(341): Illuminate/Console/Command->execute(Object(Symfony/Component/Console/Input/ArgvInput), Object(Illuminate/Console/OutputStyle))
+#33 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony/Component/Console/Command/Command->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Illuminate/Console/OutputStyle))
+#34 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/symfony/console/Application.php(1117): Illuminate/Console/Command->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#35 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/symfony/console/Application.php(356): Symfony/Component/Console/Application->doRunCommand(Object(Laravel/Reverb/Servers/Reverb/Console/Commands/StartServer), Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#36 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/symfony/console/Application.php(195): Symfony/Component/Console/Application->doRun(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#37 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony/Component/Console/Application->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#38 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#39 D:/SIM-SKRIPSI-PATCHED-ARSIP-PREVIEW/artisan(7): Illuminate/Foundation/Application->handleCommand(Object(Symfony/Component/Console/Input/ArgvInput))
+#40 {main}
+"} 
+[2026-06-25 19:48:11] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/54677ed5-b56f-485e-b161-154678cf3dbe\"
+}
+"} 
+[2026-06-25 19:48:30] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/bec0a125-ae54-42ef-92cb-b1f3b95806bf\"
+}
+"} 
+[2026-06-25 19:48:54] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/1c4e9fc5-7222-4d44-be8d-a86d7191577e\"
+}
+"} 
+[2026-06-25 19:49:06] local.INFO: FCM RESPONSE {"status":200,"body":"{
+  \"name\": \"projects/sim-skripsi/messages/4187e5ba-c49a-4a83-a145-e0727f626c33\"
+}
+"} 
